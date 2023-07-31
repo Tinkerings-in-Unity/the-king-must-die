@@ -225,11 +225,6 @@ namespace Opsive.UltimateCharacterController.Character.Abilities.AI
                 }
                 m_CharacterLocomotion.DesiredMovement = m_CharacterLocomotion.TransformDirection(desiredMovement);
             }
-
-            // NavMeshAgents require the transforms to be synced.
-            if (!Physics.autoSyncTransforms) {
-                Physics.SyncTransforms();
-            }
         }
 
         /// <summary>

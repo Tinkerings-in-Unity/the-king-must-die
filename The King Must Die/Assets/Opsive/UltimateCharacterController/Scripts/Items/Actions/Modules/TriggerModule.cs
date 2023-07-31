@@ -235,7 +235,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
         /// </summary>
         public override void StopItemUse()
         {
-            // The item has been used- inform the state set.
+            // The item has been used - inform the state set.
             m_UseAnimatorAudioStateSet.StartStopStateSelection(false);
         }
 
@@ -288,7 +288,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
     /// A base class for simple trigger which execute the action once.
     /// </summary>
     [Serializable]
-    public abstract class SimpleBaseTrigger : TriggerModuleAnimatorAudioStateSet
+    public abstract class SimpleBaseTrigger : TriggerModuleAnimatorAudioStateSet, IModuleReloadItem
     {
         [Tooltip("If True and the use ability input stops, the module will say that it can stop early.")]
         [SerializeField] protected bool m_CanStopIfInputStop = false;
@@ -443,7 +443,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
                 Opsive.Shared.Events.EventHandler.ExecuteEvent(Character, "OnItemActionTriggerStoppedEarly", this);
             }
             
-            //Stop the animation on stop item use.
+            // Stop the animation on stop item use.
             m_WasTriggered = false;
             m_IsTriggering = false;
             UpdateItemAbilityAnimatorParameters();
@@ -457,6 +457,16 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
         {
             base.ResetModule(force);
             m_InputActive = false;
+        }
+
+        /// <summary>
+        /// Reloads the item.
+        /// </summary>
+        /// <param name="fullClip">Should the full clip be force reloaded?</param>
+        public virtual void ReloadItem(bool fullClip)
+        {
+            m_WasTriggered = false;
+            m_IsTriggering = false;
         }
     }
 
@@ -480,7 +490,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
         {
             base.Initialize(itemAction);
 
-            //Don't wait for use complete such that attacks can chain between use and use complete.
+            // Don't wait for use complete such that attacks can chain between use and use complete.
             UsableAction.WaitForUseCompleteBeforeCanStartAgain = false;
         }
 
@@ -515,14 +525,11 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
             
             if (abilityState == UsableAction.UseAbilityState.Start) {
                 if (m_StartedUseAttack) {
-                    
                     if (m_UseAnimatorAudioStateSet.States.Length == 1) {
-                        Debug.LogError("Error: The MeleeWeapon cannot be used again. Another state should be added to the Use Animator Audio State Set. See the first troubleshooting tip for more info: " +
-                                       "https://opsive.com/support/documentation/ultimate-character-controller/items/actions/usable/melee-weapon/.");
+                        Debug.LogError("Error: The item cannot be used again. Another state should be added to the Animator Audio State Set.", GameObject);
                     }
-                    
-                    if(m_UsedAttack && m_AllowAttackCombos) {
 
+                    if (m_UsedAttack && m_AllowAttackCombos) {
                         return true;
                     }
 

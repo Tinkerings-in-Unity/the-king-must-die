@@ -86,6 +86,7 @@ namespace Opsive.UltimateCharacterController.Inventory
             if (m_Initialized && !force) {
                 return;
             }
+            
             m_Initialized = true;
 
             m_GameObject = gameObject;
@@ -110,6 +111,8 @@ namespace Opsive.UltimateCharacterController.Inventory
                 // Create a mapping between the category and index.
                 m_CategoryIndexMap.Add(itemSetGroup.CategoryID, i);
             }
+
+            if (!Application.isPlaying) { return; }
 
             EventHandler.RegisterEvent<CharacterItem>(m_GameObject, "OnInventoryAddItem", OnAddItem);
             EventHandler.RegisterEvent<CharacterItem>(m_GameObject, "OnInventoryDestroyItem", OnDestroyItem);

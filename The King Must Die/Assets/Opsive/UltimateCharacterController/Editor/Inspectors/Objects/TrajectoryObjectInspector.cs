@@ -54,7 +54,6 @@ namespace Opsive.UltimateCharacterController.Editor.Inspectors.Objects
                 "m_ImpactLayers",
                 "m_SurfaceImpact",
                 "m_ForceMultiplier",
-                "m_DisableColliderOnImpact",
             });
             
             // Show certain fields depending on the value of the collision mode.

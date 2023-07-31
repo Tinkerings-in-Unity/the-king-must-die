@@ -63,10 +63,21 @@ namespace Opsive.UltimateCharacterController.SurfaceSystem
         public string StateName { get { return m_StateName; } set { m_StateName = value; } }
         public float StateDisableTimer { get { return m_StateDisableTimer; } set { m_StateDisableTimer = value; } }
 
-        private GameObject m_LastSpawnedDecal;
-        private AudioClip m_LastPlayedAudioClip;
-        private int m_LastPlayedAudioClipFrame;
-        private int m_AudioClipIndex;
+        [System.NonSerialized] private GameObject m_LastSpawnedDecal;
+        [System.NonSerialized] private AudioClip m_LastPlayedAudioClip;
+        [System.NonSerialized] private int m_LastPlayedAudioClipFrame;
+        [System.NonSerialized] private int m_AudioClipIndex;
+
+        /// <summary>
+        /// Resets the surface effect.
+        /// </summary>
+        public void OnEnable()
+        {
+            m_LastSpawnedDecal = null;
+            m_LastPlayedAudioClip = null;
+            m_LastPlayedAudioClipFrame = 0;
+            m_AudioClipIndex = 0;
+        }
 
         /// <summary>
         /// Spawns the surface objects and decals.

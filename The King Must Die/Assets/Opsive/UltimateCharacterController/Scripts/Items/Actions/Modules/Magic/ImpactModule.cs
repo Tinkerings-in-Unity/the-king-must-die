@@ -36,8 +36,12 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Magic
     [Serializable]
     public class GenericMagicImpactModule : MagicImpactModule
     {
-        [Tooltip("The impact actions.")]
+        [Tooltip("The conditions to do an impact actions.")]
+        [SerializeField] protected ImpactActionConditionGroup m_Conditions = ImpactActionConditionGroup.DefaultConditionGroup();
+        [Tooltip("The impact actions to invoke on impact.")]
         [SerializeField] protected ImpactActionGroup m_ImpactActions  = ImpactActionGroup.DefaultDamageGroup(true);
+        [Tooltip("The impact actions in case the condition fails.")]
+        [SerializeField] protected ImpactActionGroup m_FailImpactActions = new ImpactActionGroup();
 
         public ImpactActionGroup ImpactActions { get => m_ImpactActions; set => m_ImpactActions = value; }
 
@@ -49,24 +53,31 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Magic
             base.InitializeInternal();
             
             m_ImpactActions.Initialize(this);
+            m_Conditions.Initialize(this);
+            m_FailImpactActions.Initialize(this);
         }
 
         /// <summary>
-        /// Function called when an impact happens.
+        /// On fire impact.
         /// </summary>
-        /// <param name="impactCallbackContext">The impact callback data.</param>
+        /// <param name="impactCallbackContext">The impact callback.</param>
         public override void OnImpact(ImpactCallbackContext impactCallbackContext)
         {
-            m_ImpactActions.OnImpact(impactCallbackContext, false);
+            if (m_Conditions.CanImpact(impactCallbackContext)) {
+                m_ImpactActions.OnImpact(impactCallbackContext, true);
+            } else {
+                m_FailImpactActions.OnImpact(impactCallbackContext, true);
+            }
         }
 
         /// <summary>
-        /// Reset the impact with the source id.
+        /// Reset the impact with the source id specified.
         /// </summary>
-        /// <param name="sourceID">The source id of the impact to reset.</param>
+        /// <param name="sourceID">The source id.</param>
         public override void Reset(uint sourceID)
         {
             m_ImpactActions.Reset(sourceID);
+            m_FailImpactActions.Reset(sourceID);
         }
 
         /// <summary>
@@ -76,6 +87,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Magic
         {
             base.OnDestroy();
             m_ImpactActions.OnDestroy();
+            m_FailImpactActions.OnDestroy();
         }
         
         /// <summary>

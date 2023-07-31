@@ -67,7 +67,7 @@ namespace Opsive.UltimateCharacterController.Inventory
 
         public uint CategoryID => ItemCategory?.ID ?? 0;
 
-        public string CategoryName => ItemCategory.name;
+        public string CategoryName => ItemCategory?.name ?? "NULL";
 
         public int DefaultItemSetIndex { get { return m_DefaultItemSetIndex; } set { m_DefaultItemSetIndex = value; } }
         

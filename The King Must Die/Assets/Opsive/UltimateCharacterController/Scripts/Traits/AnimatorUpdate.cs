@@ -20,7 +20,7 @@ namespace Opsive.UltimateCharacterController.Traits
 
         private Animator m_Animator;
 
-        private int m_SimulationIndex;
+        private int m_SimulationIndex = -1;
 
         public int SimulationIndex { set { m_SimulationIndex = value; } }
         public Transform Transform { get { return transform; } }

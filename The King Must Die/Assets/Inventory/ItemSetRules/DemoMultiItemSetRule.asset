@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: DemoMultiItemSetRule
   m_EditorClassIdentifier: 
   m_ItemSetRules:
-  - {fileID: 11400000, guid: ebcfd71ebcf9c8b47965891b95bfa83a, type: 2}
   - {fileID: 11400000, guid: b7022515e9be62348ac25ad62cc574df, type: 2}
   - {fileID: 11400000, guid: 0a44f818bfe824c4aada3c153ee8e651, type: 2}
   - {fileID: 11400000, guid: 4b10b400ef2f0394dbf8c9e0470bc813, type: 2}

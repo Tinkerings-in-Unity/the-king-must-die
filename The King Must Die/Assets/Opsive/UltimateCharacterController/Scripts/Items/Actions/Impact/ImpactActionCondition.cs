@@ -64,9 +64,8 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Impact
         /// <summary>
         /// A static constructor for the default damage impacts use to quickly setup a component.
         /// </summary>
-        /// <param name="useContextData">Use the context data?</param>
         /// <returns>The new impact action group setup for damage.</returns>
-        public static ImpactActionConditionGroup DefaultConditionGroup(bool useContextData)
+        public static ImpactActionConditionGroup DefaultConditionGroup()
         {
             return new ImpactActionConditionGroup(new ImpactActionCondition[]
             {
@@ -240,16 +239,48 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Impact
     [Serializable]
     public class CheckTargetImpactConditionBehaviour : ImpactActionCondition
     {
+        /// <summary>
+        /// Internal, Can the impact proceed from the context.
+        /// </summary>
+        /// <param name="ctx">Context about the hit.</param>
+        /// <returns>True if the impact should proceed.</returns>
         protected override bool CanImpactInternal(ImpactCallbackContext ctx)
         {
-            var conditionBehaviour = ctx.ImpactCollisionData?.ImpactGameObject?.GetCachedComponent<ImpactConditionBehaviourBase>();
-            
+            // Search on the gameobject first.
+            var impactGameObject = ctx.ImpactCollisionData?.ImpactGameObject;
+            if (TryGetImpactConditionBehaviour(impactGameObject, out var impactConditionBehaviour) == false) {
+                
+                // Check on the Rigidbody.
+                var impactRigidbody = ctx.ImpactCollisionData?.ImpactRigidbody;
+                if (impactRigidbody == null) {
+                    // No condition behaviour, pass
+                    return true;
+                }
+                var impactRigidbodyGameObject = impactRigidbody.gameObject;
+                if(TryGetImpactConditionBehaviour(impactRigidbodyGameObject, out impactConditionBehaviour) == false)
+                {
+                    // No condition behaviour, pass
+                    return true;
+                }
+            }
+
             // No condition behaviour, pass
-            if (conditionBehaviour == null) {
+            if (impactConditionBehaviour == null) {
                 return true;
             }
 
-            return conditionBehaviour.CanImpact(ctx);
+            return impactConditionBehaviour.CanImpact(ctx);
+        }
+
+        public bool TryGetImpactConditionBehaviour(GameObject gameObject, out ImpactConditionBehaviourBase impactConditionBehaviour)
+        {
+            impactConditionBehaviour = null;
+            if (gameObject == null) {
+                return false;
+            }
+            
+            impactConditionBehaviour = gameObject.GetCachedComponent<ImpactConditionBehaviourBase>();
+            return impactConditionBehaviour != null;
         }
     }
     

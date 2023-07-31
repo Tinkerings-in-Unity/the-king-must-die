@@ -15,7 +15,6 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.UltimateCharacterController.Items.AnimatorAudioStates.AnimatorAudioStateSet+AnimatorAudioState
     m_ValueHashes: 6a6a25e2
-    m_LongValueHashes: 
     m_ValuePositions: 00000000
     m_Values: 00
     m_UnityObjects: []

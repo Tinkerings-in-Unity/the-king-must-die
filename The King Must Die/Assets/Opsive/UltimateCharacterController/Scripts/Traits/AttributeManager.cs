@@ -49,8 +49,10 @@ namespace Opsive.UltimateCharacterController.Traits
         [SerializeField] protected float m_AutoUpdateAmount = 0.2f;
 
         [NonSerialized] public string Name { get { return m_Name; } set { m_Name = value; } }
-        public float MinValue { get { return m_MinValue; } set { m_MinValue = value; } }
-        public float MaxValue { get { return m_MaxValue; } set { m_MaxValue = value; } }
+        public float MinValue { get { return m_MinValue; } set { m_MinValue = value; Value = m_Value; } }
+        public float MaxValue { get { return m_MaxValue; } set { m_MaxValue = value; Value = m_Value; } }
+        
+        
         [NonSerialized] public float Value { get { return m_Value; }
             set
             {

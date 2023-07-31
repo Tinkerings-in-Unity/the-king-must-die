@@ -202,7 +202,7 @@ namespace Opsive.UltimateCharacterController.Character
         }
 
         /// <summary>
-        /// Updates during the physics loop.
+        /// Updates after the physics loop has run.
         /// </summary>
         private void FixedUpdate()
         {
@@ -249,7 +249,7 @@ namespace Opsive.UltimateCharacterController.Character
                 var heightMultiplier = MathUtility.CapsuleColliderHeightMultiplier(m_CapsuleCollider);
                 var targetHeight = m_CapsuleCollider.height + localDirection.y / heightMultiplier;
                 if (targetHeight >= m_CapsuleCollider.radius * 2 && (localDirection.y < 0 || !m_CharacterLocomotion.UsingVerticalCollisionDetection ||
-                            Physics.OverlapCapsuleNonAlloc(firstEndCap, secondEndCap + m_Transform.up * localDirection.y,
+                            Physics.OverlapCapsuleNonAlloc(firstEndCap + m_CharacterLocomotion.Up * m_CharacterLocomotion.ColliderSpacing, secondEndCap + m_Transform.up * localDirection.y,
                                         m_CapsuleCollider.radius * MathUtility.ColliderScaleMultiplier(m_CapsuleCollider), m_OverlapColliders, m_CharacterLayerManager.SolidObjectLayers,
                                         QueryTriggerInteraction.Ignore) == 0)) {
                     // Adjust the CapsuleCollider height and center to account for the new offset.

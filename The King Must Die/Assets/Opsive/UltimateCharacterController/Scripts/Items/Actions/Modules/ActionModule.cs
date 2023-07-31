@@ -213,6 +213,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules
         /// <summary>
         /// Updates the registered events when the item is equipped and the module is enabled.
         /// </summary>
+        /// <param name="register">register or unregister?</param>
         protected virtual void UpdateRegisteredEventsInternal(bool register) { }
 
         /// <summary>

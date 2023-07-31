@@ -9,6 +9,7 @@ namespace Opsive.UltimateCharacterController.Character
     using Opsive.Shared.Game;
     using Opsive.Shared.StateSystem;
     using Opsive.UltimateCharacterController.Game;
+    using Opsive.UltimateCharacterController.Objects;
     using Opsive.UltimateCharacterController.Utility;
     using System;
     using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Opsive.UltimateCharacterController.Character
     /// - CapsuleCollider, SphereCollider and BoxCollider support (for generic characters)
     /// - Moving Platforms
     /// </summary>
-    public class CharacterLocomotion : StateBehavior
+    public class CharacterLocomotion : StateBehavior, IForceObject
     {
         // Padding value used to prevent the character's collider from overlapping the environment collider. Overlapped colliders don't work well with ray casts.
         private const float c_ColliderSpacing = 0.01f;
@@ -1132,13 +1133,11 @@ namespace Opsive.UltimateCharacterController.Character
                 resolved = true;
                 var hitCount = OverlapColliders(activeCollider, activeCollider.transform.position + moveDirection + offset, activeCollider.transform.rotation);
                 if (hitCount > 0) {
-                    for (int i = 0; i < hitCount; ++i) {
-                        if (Physics.ComputePenetration(activeCollider, activeCollider.transform.position + moveDirection + offset, activeCollider.transform.rotation, m_OverlapCastResults[i],
-                            m_OverlapCastResults[i].transform.position, m_OverlapCastResults[i].transform.rotation, out var direction, out var distance)) {
-                            offset += direction * (distance + c_ColliderSpacing);
-                            resolved = false;
-                            break;
-                        }
+                    if (Physics.ComputePenetration(activeCollider, activeCollider.transform.position + moveDirection + offset, activeCollider.transform.rotation, m_OverlapCastResults[0],
+                        m_OverlapCastResults[0].transform.position, m_OverlapCastResults[0].transform.rotation, out var direction, out var distance)) {
+                        offset += direction * (distance + c_ColliderSpacing);
+                    } else {
+                        return false;
                     }
                 }
                 iterations++;
@@ -1185,14 +1184,15 @@ namespace Opsive.UltimateCharacterController.Character
                                 new Vector3(localDesiredMovement.x, (localDesiredMovement.y < 0 ? 0 : localDesiredMovement.y) + castOffset, localDesiredMovement.z),
                                 m_Rotation) + m_MovingPlatformMovement;
             var stickyGround = StickingToGround && m_Grounded;
-            var hitCount = CombinedCast(targetPosition, m_GravityDirection, 
+            var hitCount = CombinedCast(targetPosition, m_GravityDirection,
                                         (stickyGround ? m_StickToGroundDistance : 0) +
                                         m_SkinWidth + castOffset + c_ColliderSpacing);
             if (hitCount > 0) {
                 for (int i = 0; i < hitCount; ++i) {
                     var closestRaycastHit = QuickSelect.SmallestK(m_CombinedCastResults, hitCount, i, m_CastHitComparer);
+                    var activeCollider = m_ColliderCount > 1 ? m_Colliders[m_ColliderIndexMap[closestRaycastHit]] : m_Colliders[m_ColliderIndex];
                     if (closestRaycastHit.distance == 0) {
-                        if (closestRaycastHit.collider.Raycast(new Ray(targetPosition + m_Up * castOffset, m_GravityDirection), out var hit, Mathf.Infinity) &&
+                        if (ResolvePenetrations(activeCollider, targetPosition - m_Position, out var offset) && closestRaycastHit.collider.Raycast(new Ray(targetPosition + m_Up * castOffset, m_GravityDirection), out var hit, Mathf.Infinity) &&
                                     (closestRaycastHit.distance == 0 || MathUtility.InverseTransformPoint(m_Position + m_MovingPlatformMovement, m_Rotation * m_MovingPlatformRotation, closestRaycastHit.point).y > m_MaxStepHeight)) {
                             var colliderIndex = 0;
                             if (m_ColliderCount > 1) {
@@ -1201,7 +1201,7 @@ namespace Opsive.UltimateCharacterController.Character
                             closestRaycastHit = hit;
                             closestRaycastHit.distance = MathUtility.InverseTransformDirection(targetPosition - hit.point, m_Rotation).y;
 
-                            // The raycast result may already exist if there are multiple m_CombinedCastReults with a 0 distance.
+                            // The raycast result may already exist if there are multiple m_CombinedCastResults with a 0 distance.
                             if (m_ColliderCount > 1 && !m_ColliderIndexMap.ContainsKey(closestRaycastHit)) {
                                 m_ColliderIndexMap.Add(closestRaycastHit, colliderIndex);
                             }
@@ -1235,7 +1235,6 @@ namespace Opsive.UltimateCharacterController.Character
                             UpdateMovingPlatformTransform(closestRaycastHit.transform);
                         }
                         m_GroundedRaycastHit = closestRaycastHit;
-                        var activeCollider = m_ColliderCount > 1 ? m_Colliders[m_ColliderIndexMap[closestRaycastHit]] : m_Colliders[m_ColliderIndex];
                         m_CharacterGroundedCollider = activeCollider;
 
                         if (UsingVerticalCollisionDetection) {
@@ -1635,12 +1634,31 @@ namespace Opsive.UltimateCharacterController.Character
         }
 
         /// <summary>
+        /// Adds a force to the character in a single frame. The force will either be an external or soft force.
+        /// </summary>
+        /// <param name="force">The force to add.</param>
+        public void AddForce(Vector3 force)
+        {
+            AddForce(force, 1);
+        }
+
+        /// <summary>
+        /// Adds a force to the character in the specified number of frames. The force will either be an external or soft force.
+        /// </summary>
+        /// <param name="force">The force to add.</param>
+        /// <param name="frames">The number of frames to add the force to.</param>
+        public void AddForce(Vector3 force, int frames)
+        {
+            AddForce(force, frames, true);
+        }
+
+        /// <summary>
         /// Adds a force to the character in the specified number of frames. The force will either be an external or soft force.
         /// </summary>
         /// <param name="force">The force to add.</param>
         /// <param name="frames">The number of frames to add the force to.</param>
         /// <param name="scaleByMass">Should the force be scaled by the character's mass?</param>
-        public void AddForce(Vector3 force, int frames = 1, bool scaleByMass = true)
+        public void AddForce(Vector3 force, int frames, bool scaleByMass)
         {
             if (force.sqrMagnitude == 0) {
                 return;

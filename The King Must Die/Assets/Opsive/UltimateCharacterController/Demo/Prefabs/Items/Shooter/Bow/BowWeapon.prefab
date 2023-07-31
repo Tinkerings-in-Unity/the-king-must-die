@@ -258,6 +258,18 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1000
+      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
+        asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
     - rid: 707337210847559716
       type: {class: Charged, ns: Opsive.UltimateCharacterController.Items.Actions.Modules,
         asm: Opsive.UltimateCharacterController}
@@ -533,11 +545,16 @@ MonoBehaviour:
         m_Enabled: 1
         m_ID: 0
         m_Name: 
+        m_Conditions:
+          m_ImpactActionConditions:
+          - rid: 1000
         m_ImpactActions:
           m_ImpactActions:
           - rid: 4821689494049128459
           - rid: 4821689494049128460
           - rid: 5031970203183611904
+        m_FailImpactActions:
+          m_ImpactActions: []
     - rid: 4821689494049128459
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
         asm: Opsive.UltimateCharacterController}

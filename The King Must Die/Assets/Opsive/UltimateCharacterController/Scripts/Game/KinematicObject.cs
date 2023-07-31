@@ -19,7 +19,7 @@ namespace Opsive.UltimateCharacterController.Game
         private Vector3 m_LastPosition;
         private Quaternion m_LastRotation;
 
-        private int m_SimulationIndex;
+        private int m_SimulationIndex = -1;
 
         public Transform Transform { get { return m_Transform; } }
         public int SimulationIndex { set {  m_SimulationIndex = value; } }

@@ -239,7 +239,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Impact
             
             // Set the Damage Impact data to the context.
             if (m_SetDamageImpactData) {
-                
                 // Create a new damage data to avoid changing the original one.
                 if (m_CachedImpactDamageData == null) {
                     m_CachedImpactDamageData = new ImpactDamageData();

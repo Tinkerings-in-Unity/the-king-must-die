@@ -1133,11 +1133,11 @@ namespace Opsive.UltimateCharacterController.Character
                     abilityIndex = m_CharacterLocomotion.ActiveAbilities[i].AbilityIndexParameter;
                     setAbilityIndex = false;
                 }
-                if (setStateIndex && m_CharacterLocomotion.ActiveAbilities[i].AbilityIntData != -1) {
+                if (setStateIndex && m_CharacterLocomotion.ActiveAbilities[i].AbilityIntData != int.MinValue) {
                     intData = m_CharacterLocomotion.ActiveAbilities[i].AbilityIntData;
                     setStateIndex = false;
                 }
-                if (setAbilityFloatData && m_CharacterLocomotion.ActiveAbilities[i].AbilityFloatData != -1) {
+                if (setAbilityFloatData && m_CharacterLocomotion.ActiveAbilities[i].AbilityFloatData != float.NegativeInfinity) {
                     floatData = m_CharacterLocomotion.ActiveAbilities[i].AbilityFloatData;
                     setAbilityFloatData = false;
                 }

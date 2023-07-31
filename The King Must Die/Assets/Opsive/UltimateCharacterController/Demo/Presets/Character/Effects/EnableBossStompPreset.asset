@@ -15,7 +15,6 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.UltimateCharacterController.Character.Effects.BossStomp
     m_ValueHashes: 6a6a25e2
-    m_LongValueHashes: 
     m_ValuePositions: 00000000
     m_Values: 01
     m_UnityObjects: []
