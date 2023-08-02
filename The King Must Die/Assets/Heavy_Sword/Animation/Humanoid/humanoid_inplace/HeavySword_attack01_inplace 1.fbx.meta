@@ -39,7 +39,7 @@ ModelImporter:
       name: HeavySword_attack01
       takeName: HeavySword_attack01
       internalID: 0
-      firstFrame: 28
+      firstFrame: 0
       lastFrame: 117
       wrapMode: 0
       orientationOffsetY: 0

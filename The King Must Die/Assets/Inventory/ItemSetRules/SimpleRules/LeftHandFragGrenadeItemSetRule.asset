@@ -50,4 +50,4 @@ MonoBehaviour:
   m_ExactAmountValidation: 0
   m_ItemTypeSlots:
   - {fileID: 0}
-  - {fileID: 114074367643677680, guid: 5481010ef14c32f4cb7b6661b0c59fb4, type: 2}
+  - {fileID: -6768469198113004203, guid: fa513cbdc9498ef4b9fa14e70c1826aa, type: 2}

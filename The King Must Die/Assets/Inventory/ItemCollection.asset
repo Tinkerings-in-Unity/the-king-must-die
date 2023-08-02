@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6768469198113004203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  m_ID: 1
+  m_CategoryIDs: bf70bfd845449e51
+  m_Capacity: 2147483647
+  m_Prefabs:
+  - {fileID: 231266389, guid: f74c66f92ffe5c04b9fec1b1273d126d, type: 3}
 --- !u!114 &-2710901684208661223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,8 +51,7 @@ MonoBehaviour:
   - {fileID: -2710901684208661223}
   m_ItemTypes:
   - {fileID: 114165112627310990}
-  - {fileID: 802002962617898922}
-  - {fileID: 3292035446032153582}
+  - {fileID: -6768469198113004203}
 --- !u!114 &114165112627310990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +62,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
-  m_Name: Sword
+  m_Name: SwordCombo1
   m_EditorClassIdentifier: 
   m_ID: 0
   m_CategoryIDs: bf70bfd8ad30ab33
@@ -118,37 +134,3 @@ MonoBehaviour:
   m_Name: LeftHandSecondaryGrenades
   m_EditorClassIdentifier: 
   m_ID: 946837701
---- !u!114 &802002962617898922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
-  m_Name: Sword2
-  m_EditorClassIdentifier: 
-  m_ID: 1
-  m_CategoryIDs: bf70bfd81b843e06
-  m_Capacity: 1
-  m_Prefabs:
-  - {fileID: 798529714311038646, guid: 6b8595e2065f79540aa8358a2a9d0ce4, type: 3}
---- !u!114 &3292035446032153582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
-  m_Name: Katana
-  m_EditorClassIdentifier: 
-  m_ID: 2
-  m_CategoryIDs: bf70bfd8ad30ab33
-  m_Capacity: 1
-  m_Prefabs:
-  - {fileID: 1319129606718160, guid: 0ce8aaa8c698c18408bdb59448467bfa, type: 3}

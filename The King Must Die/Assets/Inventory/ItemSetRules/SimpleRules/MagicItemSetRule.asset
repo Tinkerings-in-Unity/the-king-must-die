@@ -29,6 +29,7 @@ MonoBehaviour:
   m_Default: 0
   m_ExactAmountValidation: 0
   m_ItemCategorySlots:
-  - {fileID: 114261901318863308, guid: 5481010ef14c32f4cb7b6661b0c59fb4, type: 2}
+  - {fileID: 0}
+  - {fileID: 114261901318863308, guid: fa513cbdc9498ef4b9fa14e70c1826aa, type: 2}
   m_ItemTypeExceptions: []
   m_ItemCategoryExceptions: []

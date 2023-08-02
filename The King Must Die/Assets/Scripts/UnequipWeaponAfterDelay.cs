@@ -8,6 +8,7 @@ using Opsive.Shared.StateSystem;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.UltimateCharacterController.Character.Abilities.Items;
+using Rewired;
 using Unity.Collections;
 
 public class UnequipWeaponAfterDelay : MonoBehaviour
@@ -23,21 +24,20 @@ public class UnequipWeaponAfterDelay : MonoBehaviour
     private ItemAbility _toggleEquipAbility;
     private ItemAbility _useAbility;
     private ScheduledEventBase _scheduledEvent;
-    private IPlayerInput _playerInput;
+    private Player _playerInput;
     private bool _equipped = true;
     private bool _useAbilityActive;
     
     public void Awake()
     {
-        EventHandler.RegisterEvent<ItemAbility, bool>(gameObject, "OnCharacterItemAbilityActive", OnAbilityActive);
-        _playerInput = character.GetComponentInChildren<IPlayerInput>();
+        _playerInput = ReInput.players.GetPlayer(0);
     }
-    
-    
     
 
     private void Start()
     {
+        EventHandler.RegisterEvent<ItemAbility, bool>(character, "OnCharacterItemAbilityActive", OnAbilityActive);
+
         _characterLocomotion = character.GetComponent<UltimateCharacterLocomotion>();
 
         var itemAbilities = _characterLocomotion.ItemAbilities;
@@ -60,7 +60,7 @@ public class UnequipWeaponAfterDelay : MonoBehaviour
 
     private void OnAbilityActive(ItemAbility ability, bool isActive)
     {
-        if (ability != _useAbility)
+        if (ability.State != _useAbility.State)
         {
             return;
         }
@@ -83,8 +83,8 @@ public class UnequipWeaponAfterDelay : MonoBehaviour
             return;
         }
         
-        var isUsingWeapon = _playerInput.GetButtonDown(InputName) || _playerInput.GetDoublePress(InputName) ||
-                            _playerInput.GetLongPress(InputName, longPressDuration, waitForLongPressRelease);
+        var isUsingWeapon = _playerInput.GetButtonDown(InputName) || _playerInput.GetButtonDoublePressDown(InputName) ||
+                            _playerInput.GetButtonLongPress(InputName);
         
         if (isUsingWeapon)
         {
@@ -124,7 +124,7 @@ public class UnequipWeaponAfterDelay : MonoBehaviour
     
     private void ToggleEquip()
     {
-        
+        return;
         _equipped = !_equipped;
         
         StateManager.SetState(character, "Aim", _equipped);
@@ -134,6 +134,6 @@ public class UnequipWeaponAfterDelay : MonoBehaviour
 
     public void OnDestroy()
     {
-        EventHandler.UnregisterEvent<ItemAbility, bool>(gameObject, "OnCharacterItemAbilityActive", OnAbilityActive);
+        EventHandler.UnregisterEvent<ItemAbility, bool>(character, "OnCharacterItemAbilityActive", OnAbilityActive);
     }
 }

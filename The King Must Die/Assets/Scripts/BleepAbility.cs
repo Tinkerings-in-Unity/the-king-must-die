@@ -5,7 +5,7 @@ using Opsive.Shared.Game;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.Shared.Events;
-
+using Rewired;
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
 public class BleepAbility : MonoBehaviour
@@ -33,6 +33,7 @@ public class BleepAbility : MonoBehaviour
     private AudioSource _audioSource;
     private UltimateCharacterLocomotion _characterLocomotion;
     private bool _canDash = true;
+    private Player _player;
     
     public void Awake()
     {
@@ -47,13 +48,14 @@ public class BleepAbility : MonoBehaviour
         _characterLocomotion = gameObject.GetComponent<UltimateCharacterLocomotion>();
         bleepHorizontalChecker.Setup(transform ,bleepForwardOffset, bleepCheckersHeight);
         bleepVerticalChecker.Setup( transform ,bleepHorizontalChecker.GetHorizontalPositionToBleepTo(), bleepCheckersHeight);
+        _player = ReInput.players.GetPlayer(0);
     }
 
     private void Update()
     {
         CheckHorizontal();
 
-        if (Input.GetButtonDown("Jump") && _canDash)
+        if (_player.GetButtonDown("Jump") && _canDash)
         {
             var positionToBleepTo = bleepVerticalChecker.GetPositionToDashTo();
             
