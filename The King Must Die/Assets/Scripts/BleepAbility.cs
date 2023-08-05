@@ -14,14 +14,15 @@ public class BleepAbility : MonoBehaviour
     [SerializeField] private GameObject endOfBleepParticlePrefab;
     [SerializeField] private float startParticleYPositionOffset = 0f;
     [SerializeField] private float endParticleYPositionOffset = 0f;
-    [SerializeField] private float bleepDelay = 0.3f;
+    [SerializeField] private float bleepDelay = 0.1f;
     [SerializeField] private float startParticleDestroyDelay = 1f;
     [SerializeField] private float endParticleDestroyDelay = 1f;
     [SerializeField] private BleepVerticalPositionChecker bleepVerticalChecker;
     [SerializeField] private BleepHorizontalPositionChecker bleepHorizontalChecker;
     [SerializeField] private float bleepForwardOffset;
     [SerializeField] private float bleepCheckersHeight;
-    [SerializeField] private bool m_SnapAnimator;
+    [SerializeField] private bool snapAnimator;
+    [SerializeField] private bool stopAllAbilities;
     [SerializeField] private AudioClip bleepAudioClip;
     [SerializeField] private MMFeedbacks bleepStartFeedback;
     [SerializeField] private MMFeedbacks bleepEndFeedback;
@@ -94,9 +95,9 @@ public class BleepAbility : MonoBehaviour
             _audioSource.Play();
         }
                 
-        _characterLocomotion.SetPositionAndRotation(positionToBleepTo, cachedRotation, m_SnapAnimator, true);
+        _characterLocomotion.SetPositionAndRotation(positionToBleepTo, cachedRotation, snapAnimator, stopAllAbilities);
         
-        _characterLocomotion.gameObject.SetActive(false);
+        // _characterLocomotion.gameObject.SetActive(false);
         
         SchedulerBase.Schedule(bleepDelay, Bleep);
     }
@@ -123,7 +124,7 @@ public class BleepAbility : MonoBehaviour
             _audioSource.Play();
         }
         
-        _characterLocomotion.gameObject.SetActive(true);
+        // _characterLocomotion.gameObject.SetActive(true);
         
         bleepEndFeedback?.PlayFeedbacks();
         

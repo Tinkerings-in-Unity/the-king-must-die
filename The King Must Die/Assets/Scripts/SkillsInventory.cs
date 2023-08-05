@@ -60,8 +60,8 @@ public class SkillsInventory : MonoBehaviour
             }
         }
 
-        _useBasicSkillAbility.ActionID = _basicSkillIndex;
-        _useSpecialSkillAbility.ActionID = _specialSkillIndex;
+        _useBasicSkillAbility.ActionID = _basicSkills[_basicSkillIndex];
+        _useSpecialSkillAbility.ActionID = _specialSkills[_specialSkillIndex];
     }
 
     public void AddBasicSkill(int skill)
@@ -80,63 +80,6 @@ public class SkillsInventory : MonoBehaviour
     {
         if (_player.GetButtonDown("Skill Type Up"))
         {
-            if (_scheduledEvent != null &&  _scheduledEvent.Active)
-            {
-                SchedulerBase.Cancel(_scheduledEvent);
-            }
-            
-            _skillTypeIndex--;
-            
-            if(_skillTypeIndex < 1)
-            {
-                _skillTypeIndex = skillTypeCount;
-                
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
-            
-        }
-        
-        if (_player.GetButtonDown("Skill Type Down"))
-        {
-            if (_scheduledEvent != null &&  _scheduledEvent.Active)
-            {
-                SchedulerBase.Cancel(_scheduledEvent);
-            }
-            
-            _skillTypeIndex++;
-            
-            if(_skillTypeIndex > skillTypeCount)
-            {
-                _skillTypeIndex = 1;
-                
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
-        }
-        
-        if (_player.GetButtonDown("Equip Next"))
-        {
-            if (_scheduledEvent != null &&  _scheduledEvent.Active)
-            {
-                SchedulerBase.Cancel(_scheduledEvent);
-            }
-
-            Debug.Log("Skill type " + _skillTypeIndex);
-
-            if (_skillTypeIndex == 1)
-            {
-                _basicSkillIndex++;
-                
-                if(_basicSkillIndex > _basicSkills.Count - 1)
-                {
-                    _basicSkillIndex = 0;
-                }
-                
-                _useBasicSkillAbility.ActionID = _basicSkills[_basicSkillIndex];
-                    
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
-            else if (_skillTypeIndex == 2)
-            {
                 _specialSkillIndex ++;
                 
                 if(_specialSkillIndex > _specialSkills.Count - 1)
@@ -146,34 +89,10 @@ public class SkillsInventory : MonoBehaviour
                 
                 _useSpecialSkillAbility.ActionID = _specialSkills[_specialSkillIndex];
                 
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
         }
         
-        if (_player.GetButtonDown("Equip Prev"))
+        if (_player.GetButtonDown("Skill Type Down"))
         {
-            if (_scheduledEvent != null &&  _scheduledEvent.Active)
-            {
-                SchedulerBase.Cancel(_scheduledEvent);
-            }
-
-            Debug.Log("Skill type " + _skillTypeIndex);
-
-            if (_skillTypeIndex == 1)
-            {
-                _basicSkillIndex--;
-                
-                if(_basicSkillIndex < 0)
-                {
-                    _basicSkillIndex = _basicSkills.Count - 1;
-                }
-                
-                _useBasicSkillAbility.ActionID = _basicSkills[_basicSkillIndex];
-                    
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
-            else if (_skillTypeIndex == 2)
-            {
                 _specialSkillIndex --;
                 
                 if(_specialSkillIndex < 0)
@@ -183,9 +102,116 @@ public class SkillsInventory : MonoBehaviour
                 
                 _useSpecialSkillAbility.ActionID = _specialSkills[_specialSkillIndex];
                 
-                _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
-            }
         }
+        
+        // if (_player.GetButtonDown("Skill Type Up"))
+        // {
+        //     if (_scheduledEvent != null &&  _scheduledEvent.Active)
+        //     {
+        //         SchedulerBase.Cancel(_scheduledEvent);
+        //     }
+        //     
+        //     _skillTypeIndex--;
+        //     
+        //     if(_skillTypeIndex < 1)
+        //     {
+        //         _skillTypeIndex = skillTypeCount;
+        //         
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        //     
+        // }
+        //
+        // if (_player.GetButtonDown("Skill Type Down"))
+        // {
+        //     if (_scheduledEvent != null &&  _scheduledEvent.Active)
+        //     {
+        //         SchedulerBase.Cancel(_scheduledEvent);
+        //     }
+        //     
+        //     _skillTypeIndex++;
+        //     
+        //     if(_skillTypeIndex > skillTypeCount)
+        //     {
+        //         _skillTypeIndex = 1;
+        //         
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        // }
+        
+        // if (_player.GetButtonDown("Equip Next"))
+        // {
+        //     if (_scheduledEvent != null &&  _scheduledEvent.Active)
+        //     {
+        //         SchedulerBase.Cancel(_scheduledEvent);
+        //     }
+        //
+        //     Debug.Log("Skill type " + _skillTypeIndex);
+        //
+        //     if (_skillTypeIndex == 1)
+        //     {
+        //         _basicSkillIndex++;
+        //         
+        //         if(_basicSkillIndex > _basicSkills.Count - 1)
+        //         {
+        //             _basicSkillIndex = 0;
+        //         }
+        //         
+        //         _useBasicSkillAbility.ActionID = _basicSkills[_basicSkillIndex];
+        //             
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        //     else if (_skillTypeIndex == 2)
+        //     {
+        //         _specialSkillIndex ++;
+        //         
+        //         if(_specialSkillIndex > _specialSkills.Count - 1)
+        //         {
+        //             _specialSkillIndex = 0;
+        //         }
+        //         
+        //         _useSpecialSkillAbility.ActionID = _specialSkills[_specialSkillIndex];
+        //         
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        // }
+        //
+        // if (_player.GetButtonDown("Equip Prev"))
+        // {
+        //     if (_scheduledEvent != null &&  _scheduledEvent.Active)
+        //     {
+        //         SchedulerBase.Cancel(_scheduledEvent);
+        //     }
+        //
+        //     Debug.Log("Skill type " + _skillTypeIndex);
+        //
+        //     if (_skillTypeIndex == 1)
+        //     {
+        //         _basicSkillIndex--;
+        //         
+        //         if(_basicSkillIndex < 0)
+        //         {
+        //             _basicSkillIndex = _basicSkills.Count - 1;
+        //         }
+        //         
+        //         _useBasicSkillAbility.ActionID = _basicSkills[_basicSkillIndex];
+        //             
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        //     else if (_skillTypeIndex == 2)
+        //     {
+        //         _specialSkillIndex --;
+        //         
+        //         if(_specialSkillIndex < 0)
+        //         {
+        //             _specialSkillIndex = _specialSkills.Count - 1;
+        //         }
+        //         
+        //         _useSpecialSkillAbility.ActionID = _specialSkills[_specialSkillIndex];
+        //         
+        //         _scheduledEvent = SchedulerBase.Schedule(resetDelay, Reset);
+        //     }
+        // }
     }
     
     private void Reset()
