@@ -468,7 +468,7 @@ ModelImporter:
       name: Attack_7Combo_1_Inplace
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
+      firstFrame: 5
       lastFrame: 42
       wrapMode: 0
       orientationOffsetY: 0

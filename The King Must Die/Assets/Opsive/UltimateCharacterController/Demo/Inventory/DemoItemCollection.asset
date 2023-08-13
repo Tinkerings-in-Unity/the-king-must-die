@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: BowArrow
   m_EditorClassIdentifier: 
-  m_ID: 3
+  m_ID: 7
   m_CategoryIDs: 
   m_Capacity: 2147483647
   m_Prefabs: []
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: FragGrenade
   m_EditorClassIdentifier: 
-  m_ID: 1
+  m_ID: 5
   m_CategoryIDs: bf70bfd8c5986f382767c004
   m_Capacity: 2147483647
   m_Prefabs:
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  m_ID: 5
+  m_ID: 15
   m_CategoryIDs: bf70bfd8ad30ab33
   m_Capacity: 1
   m_Prefabs:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  m_ID: 0
+  m_ID: 2
   m_CategoryIDs: bf70bfd8ad30ab33
   m_Capacity: 1
   m_Prefabs:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: Body
   m_EditorClassIdentifier: 
-  m_ID: 4
+  m_ID: 8
   m_CategoryIDs: bf70bfd8
   m_Capacity: 1
   m_Prefabs:
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
-  m_ID: 6
+  m_ID: 16
   m_CategoryIDs: bf70bfd8ad30ab33
   m_Capacity: 1
   m_Prefabs:
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e74c32144565264eb86dc7514aca7f7, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  m_ID: 2
+  m_ID: 6
   m_CategoryIDs: bf70bfd8
   m_Capacity: 1
   m_Prefabs:

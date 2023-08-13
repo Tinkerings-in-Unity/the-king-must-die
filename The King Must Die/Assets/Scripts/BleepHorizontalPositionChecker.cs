@@ -14,7 +14,7 @@ public class BleepHorizontalPositionChecker: MonoBehaviour
         _parentTransform = parentTransform;
         _maxBleepHorizontalDistance = horDis;
         var pos = _parentTransform.position;
-        transform.position = new Vector3(pos.x, verHeight, pos.z);
+        transform.position = new Vector3(pos.x, pos.y + verHeight, pos.z);
     }
 
     private void Update()
@@ -54,5 +54,11 @@ public class BleepHorizontalPositionChecker: MonoBehaviour
     public float GetHorizontalPositionToBleepTo()
     {
         return _distanceToFace;
+    }
+    
+    public Vector3 GetPositionToBleepTo()
+    {
+        Vector3 origin = transform.position;
+        return new Vector3(origin.x, origin.y, _distanceToFace); //  _distanceToFace;
     }
 }

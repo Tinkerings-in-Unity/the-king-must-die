@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.UltimateCharacterController.ThirdPersonController.Camera.ObjectFader
     m_ValueHashes: aed57799
+    m_LongValueHashes: 
     m_ValuePositions: 00000000
     m_Values: 00
     m_UnityObjects: []

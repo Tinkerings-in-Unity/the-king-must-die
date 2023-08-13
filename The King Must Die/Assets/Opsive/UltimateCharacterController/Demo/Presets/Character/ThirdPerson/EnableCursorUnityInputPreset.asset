@@ -15,7 +15,6 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.Shared.Input.UnityInput
     m_ValueHashes: c7e0cbb6
-    m_LongValueHashes: 
     m_ValuePositions: 00000000
     m_Values: 00
     m_UnityObjects: []

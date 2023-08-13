@@ -5,13 +5,14 @@ using System.Collections;
 public class BleepVerticalPositionChecker : MonoBehaviour
 {
     private float _distanceToFace;
+    public float diff;
     private float _yValue;
 
     public void Setup(Transform parentTransform, float zValue, float verHeight)
     {
         _yValue = verHeight;
         var forwardPos = parentTransform.position + (parentTransform.forward * zValue);
-        transform.position = new Vector3(forwardPos.x,_yValue, forwardPos.z);
+        transform.position = new Vector3(forwardPos.x,forwardPos.y + _yValue, forwardPos.z);
     }
     
     private void Update()
@@ -45,6 +46,8 @@ public class BleepVerticalPositionChecker : MonoBehaviour
         {
             _distanceToFace = Mathf.Infinity;
         }
+        
+        diff = transform.position.y - _distanceToFace;
     }
     
     
@@ -52,12 +55,12 @@ public class BleepVerticalPositionChecker : MonoBehaviour
     {
         var pos = transform.position;
 
-        return new Vector3(pos.x, pos.y - _distanceToFace, pos.z);
+        return new Vector3(pos.x, diff, pos.z);
     }
 
     public void SetHorizontalPosition(Transform parentTransform, float zValue)
     {
         var forwardPos = parentTransform.position + (parentTransform.forward * zValue);
-        transform.position = new Vector3(forwardPos.x,_yValue, forwardPos.z);
+        transform.position = new Vector3(forwardPos.x,forwardPos.y + _yValue, forwardPos.z);
     }
 }
