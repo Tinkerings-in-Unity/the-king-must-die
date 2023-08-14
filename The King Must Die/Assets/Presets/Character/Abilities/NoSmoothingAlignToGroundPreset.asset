@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.AlignToGround
     m_ValueHashes: 1600ddb8
+    m_LongValueHashes: 
     m_ValuePositions: 00000000
     m_Values: 00000000
     m_UnityObjects: []

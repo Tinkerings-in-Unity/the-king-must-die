@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Data:
     m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.AssistAim
     m_ValueHashes: 25cc9e1d9bf411a0164a988ad3e2ebc8
+    m_LongValueHashes: 
     m_ValuePositions: 00000000010000000200000003000000
     m_Values: 010101000080bf
     m_UnityObjects: []

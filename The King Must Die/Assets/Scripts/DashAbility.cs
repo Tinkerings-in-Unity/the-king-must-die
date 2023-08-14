@@ -31,6 +31,7 @@ public class DashAbility : MonoBehaviour
     
     
     private Ability _dashAbility;
+    private Ability _moveTowardsAbility;
     private GameObject _instantiatedStartDashParticle;
     private GameObject _instantiatedEndDashParticle;
     private AudioSource _audioSource;
@@ -50,6 +51,7 @@ public class DashAbility : MonoBehaviour
     private void Start()
     {
         _characterLocomotion = gameObject.GetComponent<UltimateCharacterLocomotion>();
+        _moveTowardsAbility = _characterLocomotion.GetAbility<MoveTowards>();
         bleepHorizontalChecker.Setup(transform ,bleepForwardOffset, bleepCheckersHeight);
         bleepVerticalChecker.Setup( transform ,bleepHorizontalChecker.GetHorizontalPositionToBleepTo(), bleepCheckersHeight);
         _player = ReInput.players.GetPlayer(0);
@@ -59,7 +61,7 @@ public class DashAbility : MonoBehaviour
     {
         CheckHorizontal();
 
-        if (_player.GetButtonDown("Jump") && _canDash)
+        if (_player.GetButtonDown("Jump") && _canDash && !_moveTowardsAbility.IsActive)
         {
             var positionToBleepTo = bleepVerticalChecker.GetPositionToDashTo();
             
@@ -114,8 +116,6 @@ public class DashAbility : MonoBehaviour
         _characterLocomotion.TryStartAbility(_characterLocomotion.GetAbility<Generic>());
         _characterLocomotion.MoveTowardsAbility.MoveTowardsLocation(positionToBleepTo);
         
-        // _characterLocomotion.gameObject.SetActive(false);
-        
     }
     
     private void CheckHorizontal()
@@ -156,14 +156,11 @@ public class DashAbility : MonoBehaviour
             _audioSource.Play();
         }
         
-        // _characterLocomotion.gameObject.SetActive(true);
-        
         bleepEndFeedback?.PlayFeedbacks();
         
         _characterLocomotion.TryStopAbility(_characterLocomotion.GetAbility<Generic>());
         
         EventHandler.ExecuteEvent(gameObject, "OnEnableGameplayInput", true);
-        // _canDash = true;
         
         SchedulerBase.Schedule(endParticleDestroyDelay, DestroyEndParticle);
     }
