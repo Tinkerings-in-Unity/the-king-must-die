@@ -27,7 +27,7 @@ namespace AllIn1VfxToolkit
         public static readonly string atlasSavesPath = "Assets/AllIn1VfxToolkit/Demo & Assets/Textures/Shapes";
         public static readonly string materialAutoSetupSavesPath = "Assets/AllIn1VfxToolkit/Demo & Assets/Demo/Materials";
 
-        private const string Version = "1.3";
+        private const string Version = "1.4";
         public Vector2 scrollPosition = Vector2.zero;
 
         private DefaultAsset materialTargetFolder = null;
@@ -728,6 +728,9 @@ namespace AllIn1VfxToolkit
                     }
                 }
                 
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                
                 Debug.Log("Material Auto Setup finished");
             }
         }
@@ -768,6 +771,7 @@ namespace AllIn1VfxToolkit
                 int renderingQueue = targetMat.renderQueue;
                 targetMat.shader = Resources.Load(targetShader, typeof(Shader)) as Shader;
                 targetMat.renderQueue = renderingQueue;
+                EditorUtility.SetDirty(targetMat);
             }
         }
 

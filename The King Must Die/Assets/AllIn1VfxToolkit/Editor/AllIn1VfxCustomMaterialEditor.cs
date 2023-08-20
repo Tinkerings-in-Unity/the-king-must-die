@@ -1078,7 +1078,11 @@ public class AllIn1VfxCustomMaterialEditor : ShaderGUI
             int renderingQueue = targetMat.renderQueue;
             targetMat.shader = Resources.Load(targetShader, typeof(Shader)) as Shader;
             targetMat.renderQueue = renderingQueue;
+            EditorUtility.SetDirty(targetMat);
         }
+        
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     private bool SpecialCaseEffectHeaderToggle(string inspector, string keyword, bool toggle)

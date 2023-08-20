@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - ALPHACUTOFF_ON
   - COLORGRADING_ON
   - RIM_ON
   - SHAPE1CONTRAST_ON
@@ -23,8 +24,7 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -154,7 +154,7 @@ Material:
     m_Floats:
     - _Alpha: 1
     - _AlphaClip: 0
-    - _AlphaCutoffValue: 0.25
+    - _AlphaCutoffValue: 0.943
     - _AlphaFadeAmount: -0.1
     - _AlphaFadePow: 1
     - _AlphaFadeSmooth: 0.075
@@ -231,10 +231,10 @@ Material:
     - _ReceiveShadows: 1
     - _RenderingMode: 0
     - _RimAddAmount: 1
-    - _RimBias: 0.03
+    - _RimBias: 0.2
     - _RimErodesAlpha: 0
-    - _RimIntensity: 1
-    - _RimPower: 5
+    - _RimIntensity: 0.3
+    - _RimPower: 3
     - _RimScale: 1
     - _RoundWaveSpeed: 2
     - _RoundWaveStrength: 0.7
