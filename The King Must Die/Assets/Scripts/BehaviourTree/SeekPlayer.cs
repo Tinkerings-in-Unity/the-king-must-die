@@ -117,6 +117,7 @@ namespace NodeCanvas.Tasks.Actions {
 			if (_navMeshAgentMovement.HasArrived)
 			{
 				_navMeshAgentMovement.StopAbility();
+				// agent.transform.LookAt(_player);
 			
 				EndAction(true);
 			}

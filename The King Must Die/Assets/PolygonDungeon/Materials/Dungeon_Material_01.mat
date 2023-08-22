@@ -169,7 +169,7 @@ Material:
     - _CamDistProximityFade: 14
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorGradingMidPoint: 0.5
+    - _ColorGradingMidPoint: 0.6
     - _ColorMask: 15
     - _ColorRampBlend: 1
     - _ColorRampLuminosity: 0
@@ -274,9 +274,9 @@ Material:
     - _Shape3XSpeed: 0
     - _Shape3YSpeed: 0
     - _ShapeAlphaWeight: 1
-    - _ShapeBrightness: -0.062
+    - _ShapeBrightness: -0.14
     - _ShapeColorWeight: 1
-    - _ShapeContrast: 1
+    - _ShapeContrast: 1.39
     - _ShapeDistortAmount: 0
     - _ShapeDistortXSpeed: 0.1
     - _ShapeDistortYSpeed: 0.1
@@ -317,9 +317,9 @@ Material:
     - _BackFaceTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorGradingDark: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
-    - _ColorGradingLight: {r: 0.92156863, g: 0.92156863, b: 0.92156863, a: 1}
-    - _ColorGradingMiddle: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    - _ColorGradingDark: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    - _ColorGradingLight: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorGradingMiddle: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
     - _DepthGlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}

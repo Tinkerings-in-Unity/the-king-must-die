@@ -42,6 +42,7 @@ namespace NodeCanvas.Tasks.Conditions {
 			if(value)
 			{
 				_navMeshAgent.ResetPath();
+				agent.transform.LookAt(_player.value.transform);
 			}
 			
 			return value;

@@ -32,6 +32,10 @@ namespace NodeCanvas.Tasks.Actions {
 			{
 				EndAction(true);
 			}
+			else
+			{
+				EndAction(false);
+			}
 		}
 
 		//Called once per frame while the action is active.
