@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword Slash 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1900295770774476, guid: c4d564b5d4682ad46b8621f0fa6f40d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4582690613557926, guid: c4d564b5d4682ad46b8621f0fa6f40d9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -87,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 4582690613557926, guid: c4d564b5d4682ad46b8621f0fa6f40d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198094294235037756, guid: c4d564b5d4682ad46b8621f0fa6f40d9, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199127430125410952, guid: c4d564b5d4682ad46b8621f0fa6f40d9, type: 3}
       propertyPath: m_Materials.Array.size
