@@ -40,6 +40,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 846382569493056144}
+  - {fileID: 2374667781715962857}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,11 +174,11 @@ MonoBehaviour:
     m_Preset: {fileID: 0}
     m_BlockList: []
     m_Default: 1
-  m_Object: {fileID: 846382569492588266}
+  m_Object: {fileID: 2374667781715532081}
   m_SpawnParent:
     m_ID: 50022001
     m_Object: {fileID: 0}
-  m_LocalSpawnPosition: {x: 0.071, y: 0.023, z: 0.0541}
+  m_LocalSpawnPosition: {x: 0.051, y: 0.023, z: 0.59}
   m_LocalSpawnRotation: {x: 0, y: -97, z: 90}
   m_LocalSpawnScale: {x: 1, y: 1, z: 1}
   m_NonDominantHandIKTarget: {fileID: 0}
@@ -236,10 +237,10 @@ MonoBehaviour:
     - rid: 8055931962749092344
   m_AttackEffectsModuleGroup:
     m_Modules:
-    - rid: 8055931661401719441
-    - rid: 8055931719528218650
-    - rid: 8055931719528218651
-    - rid: 8055931719528218652
+    - rid: 8055932088831705140
+    - rid: 8055932088831705141
+    - rid: 8055932088831705142
+    - rid: 8055932088831705143
   m_ImpactModuleGroup:
     m_Modules:
     - rid: 8055931962749092427
@@ -410,200 +411,11 @@ MonoBehaviour:
             m_AudioClipSet:
               m_AudioConfig: {fileID: 0}
               m_AudioClips: []
-          - m_States:
-            - m_Name: Default
-              m_Preset: {fileID: 0}
-              m_BlockList: []
-              m_Default: 1
-            m_Enabled: 1
-            m_AllowDuringMovement: 1
-            m_RequireGrounded: 0
-            m_StateName: 
-            m_ItemSubstateIndex: 5
-            m_AudioClipSet:
-              m_AudioConfig: {fileID: 0}
-              m_AudioClips: []
         m_AllowAttackCombos: 1
     - rid: 8055931623840678023
       type: {class: Sequence, ns: Opsive.UltimateCharacterController.Items.AnimatorAudioStates, asm: Opsive.UltimateCharacterController}
       data:
         m_ResetDelay: 1.5
-    - rid: 8055931661401719441
-      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: Slash1
-        m_OnStartAttack: 1
-        m_OnCompleteAttack: 0
-        m_SubstateIndex: 2
-        m_AttackID: -1
-        m_EffectGroup:
-          m_Effects:
-          - rid: 8055931661401719445
-    - rid: 8055931661401719445
-      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: FirstPerson
-          m_Preset: {fileID: 11400000, guid: 4de3e14440b676d40a5a6a32c6504e78, type: 2}
-          m_BlockList: []
-          m_Default: 0
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_Delay: 0
-        m_Prefab:
-          m_ThirdPerson: {fileID: 6131268248031804023, guid: 58eb57a8db9362b49a2c9d078230ae67, type: 3}
-        m_Origin:
-          m_ThirdPerson:
-            m_ID: 50099999
-            m_Object: {fileID: 0}
-        m_ParentToOrigin: 0
-        m_LocalPosition: {x: 0, y: 0, z: 0}
-        m_LocalRotation: {x: 0, y: 0, z: 0}
-        m_LocalScale: {x: 1, y: 1, z: 1}
-        m_LifeTime: 2
-    - rid: 8055931719528218650
-      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: Slash 2
-        m_OnStartAttack: 1
-        m_OnCompleteAttack: 0
-        m_SubstateIndex: 3
-        m_AttackID: -1
-        m_EffectGroup:
-          m_Effects:
-          - rid: 8055931719528218653
-    - rid: 8055931719528218651
-      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: Slash 3
-        m_OnStartAttack: 1
-        m_OnCompleteAttack: 0
-        m_SubstateIndex: 4
-        m_AttackID: -1
-        m_EffectGroup:
-          m_Effects:
-          - rid: 8055931719528218654
-    - rid: 8055931719528218652
-      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: Slash4
-        m_OnStartAttack: 1
-        m_OnCompleteAttack: 0
-        m_SubstateIndex: 5
-        m_AttackID: -1
-        m_EffectGroup:
-          m_Effects:
-          - rid: 8055931719528218655
-    - rid: 8055931719528218653
-      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_Delay: 0
-        m_Prefab:
-          m_ThirdPerson: {fileID: 496760065979123593, guid: 7b6da14f588d18a4b83d1b82d584f7ad, type: 3}
-        m_Origin:
-          m_ThirdPerson:
-            m_ID: 50099999
-            m_Object: {fileID: 0}
-        m_ParentToOrigin: 0
-        m_LocalPosition: {x: 0, y: 0, z: 0}
-        m_LocalRotation: {x: 0, y: 0, z: 0}
-        m_LocalScale: {x: 1, y: 1, z: 1}
-        m_LifeTime: 2
-    - rid: 8055931719528218654
-      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_Delay: 0.2
-        m_Prefab:
-          m_ThirdPerson: {fileID: 496760065979123593, guid: f15dc380763bb284a946b033d3c9c55d, type: 3}
-        m_Origin:
-          m_ThirdPerson:
-            m_ID: 50099999
-            m_Object: {fileID: 0}
-        m_ParentToOrigin: 0
-        m_LocalPosition: {x: 0, y: 0, z: 0}
-        m_LocalRotation: {x: 0, y: 0, z: 0}
-        m_LocalScale: {x: 1, y: 1, z: 1}
-        m_LifeTime: 2
-    - rid: 8055931719528218655
-      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_Delay: 0
-        m_Prefab:
-          m_ThirdPerson: {fileID: 496760065979123593, guid: a344a92ab1ec17f45b283385b1ffdefc, type: 3}
-        m_Origin:
-          m_ThirdPerson:
-            m_ID: 50099999
-            m_Object: {fileID: 0}
-        m_ParentToOrigin: 0
-        m_LocalPosition: {x: 0, y: 0, z: 0}
-        m_LocalRotation: {x: 0, y: 0, z: 0}
-        m_LocalScale: {x: 1, y: 1, z: 1}
-        m_LifeTime: 2
     - rid: 8055931962749092343
       type: {class: SphereOverlapCollision, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
       data:
@@ -917,6 +729,182 @@ MonoBehaviour:
         m_Delay: 0
         m_AllowMultiHits: 0
         m_ImpactKnockBackID: 0
+    - rid: 8055932088831705140
+      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 0
+        m_ID: -1
+        m_Name: Slash1
+        m_OnStartAttack: 1
+        m_OnCompleteAttack: 0
+        m_SubstateIndex: 2
+        m_AttackID: -1
+        m_EffectGroup:
+          m_Effects:
+          - rid: 8055932088831705144
+    - rid: 8055932088831705141
+      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 0
+        m_ID: -1
+        m_Name: Slash 2
+        m_OnStartAttack: 1
+        m_OnCompleteAttack: 0
+        m_SubstateIndex: 3
+        m_AttackID: -1
+        m_EffectGroup:
+          m_Effects:
+          - rid: 8055932088831705145
+    - rid: 8055932088831705142
+      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 0
+        m_ID: -1
+        m_Name: Slash 3
+        m_OnStartAttack: 1
+        m_OnCompleteAttack: 0
+        m_SubstateIndex: 4
+        m_AttackID: -1
+        m_EffectGroup:
+          m_Effects:
+          - rid: 8055932088831705146
+    - rid: 8055932088831705143
+      type: {class: GenericItemEffects, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 0
+        m_ID: -1
+        m_Name: Slash4
+        m_OnStartAttack: 1
+        m_OnCompleteAttack: 0
+        m_SubstateIndex: 5
+        m_AttackID: -1
+        m_EffectGroup:
+          m_Effects:
+          - rid: 8055932088831705147
+    - rid: 8055932088831705144
+      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: FirstPerson
+          m_Preset: {fileID: 11400000, guid: 4de3e14440b676d40a5a6a32c6504e78, type: 2}
+          m_BlockList: []
+          m_Default: 0
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_Prefab:
+          m_ThirdPerson: {fileID: 6131268248031804023, guid: 58eb57a8db9362b49a2c9d078230ae67, type: 3}
+        m_Origin:
+          m_ThirdPerson:
+            m_ID: 50099999
+            m_Object: {fileID: 0}
+        m_ParentToOrigin: 0
+        m_LocalPosition: {x: 0, y: 0, z: 0}
+        m_LocalRotation: {x: 0, y: 0, z: 0}
+        m_LocalScale: {x: 1, y: 1, z: 1}
+        m_LifeTime: 2
+    - rid: 8055932088831705145
+      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_Prefab:
+          m_ThirdPerson: {fileID: 496760065979123593, guid: 7b6da14f588d18a4b83d1b82d584f7ad, type: 3}
+        m_Origin:
+          m_ThirdPerson:
+            m_ID: 50099999
+            m_Object: {fileID: 0}
+        m_ParentToOrigin: 0
+        m_LocalPosition: {x: 0, y: 0, z: 0}
+        m_LocalRotation: {x: 0, y: 0, z: 0}
+        m_LocalScale: {x: 1, y: 1, z: 1}
+        m_LifeTime: 2
+    - rid: 8055932088831705146
+      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0.2
+        m_Prefab:
+          m_ThirdPerson: {fileID: 496760065979123593, guid: f15dc380763bb284a946b033d3c9c55d, type: 3}
+        m_Origin:
+          m_ThirdPerson:
+            m_ID: 50099999
+            m_Object: {fileID: 0}
+        m_ParentToOrigin: 0
+        m_LocalPosition: {x: 0, y: 0, z: 0}
+        m_LocalRotation: {x: 0, y: 0, z: 0}
+        m_LocalScale: {x: 1, y: 1, z: 1}
+        m_LifeTime: 2
+    - rid: 8055932088831705147
+      type: {class: SpawnPrefab, ns: Opsive.UltimateCharacterController.Items.Actions.Effect, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_Prefab:
+          m_ThirdPerson: {fileID: 496760065979123593, guid: a344a92ab1ec17f45b283385b1ffdefc, type: 3}
+        m_Origin:
+          m_ThirdPerson:
+            m_ID: 50099999
+            m_Object: {fileID: 0}
+        m_ParentToOrigin: 0
+        m_LocalPosition: {x: 0, y: 0, z: 0}
+        m_LocalRotation: {x: 0, y: 0, z: 0}
+        m_LocalScale: {x: 1, y: 1, z: 1}
+        m_LifeTime: 2
 --- !u!114 &92009836025448687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4033,6 +4021,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 102960, guid: 11b84f6e8e1190b46b3d40c72c9fe522, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 458314, guid: 11b84f6e8e1190b46b3d40c72c9fe522, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4253,4 +4245,101 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: 458314, guid: 11b84f6e8e1190b46b3d40c72c9fe522, type: 3}
   m_PrefabInstance: {fileID: 846382569492690138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2374667781715631837
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5377624154112260176}
+    m_Modifications:
+    - target: {fileID: 100332, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Ornate_Spear_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100332, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100332, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689357733147135662}
+  m_SourcePrefab: {fileID: 100100000, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+--- !u!1 &2374667781715532081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100332, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+  m_PrefabInstance: {fileID: 2374667781715631837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689357733147135662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374667781715532081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
+  m_FirstPersonVisibleOnDeath: 0
+--- !u!4 &2374667781715962857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 472372, guid: a0e8e2ba9cb9e5b498192bf4610b8206, type: 3}
+  m_PrefabInstance: {fileID: 2374667781715631837}
   m_PrefabAsset: {fileID: 0}
