@@ -16,6 +16,7 @@ public class AnimatorIdleBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         StateManager.SetState(_character, "Use", false);
+        StateManager.SetState(_character, "MagicProjectile", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -55,9 +55,9 @@ MonoBehaviour:
   m_ItemDefinition: {fileID: -6768469198113004203, guid: fa513cbdc9498ef4b9fa14e70c1826aa, type: 2}
   m_SlotID: 1
   m_AnimatorItemID: 61
-  m_AnimatorMovementSetID: 0
-  m_DominantItem: 1
-  m_AllowCameraZoom: 1
+  m_AnimatorMovementSetID: 1
+  m_DominantItem: 0
+  m_AllowCameraZoom: 0
   m_DropPrefab: {fileID: 0}
   m_FullInventoryDrop: 0
   m_EquipEvent:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_SpawnParent:
     m_ID: -1
     m_Object: {fileID: 0}
-  m_LocalSpawnPosition: {x: -0.000014325111, y: 0, z: 0}
+  m_LocalSpawnPosition: {x: 2.54, y: -0.26, z: 1.17}
   m_LocalSpawnRotation: {x: 0.00057080534, y: -0.00014580182, z: 269.99878}
   m_LocalSpawnScale: {x: 1, y: 1, z: 1}
   m_NonDominantHandIKTarget: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_FaceTarget: 1
   m_StopUseAbilityOnCompleteDelay: 0.2
   m_UseEvent:
-    m_WaitForAnimationEvent: 1
+    m_WaitForAnimationEvent: 0
     m_Duration: 0.2
     m_WaitForSlotEvent: 0
   m_UseCompleteEvent:
@@ -218,12 +218,12 @@ MonoBehaviour:
     m_Modules: []
   m_CasterModuleGroup:
     m_Modules:
-    - rid: 5031970604905398281
+    - rid: 8055932103569440919
   m_BeginModuleGroup:
     m_Modules: []
   m_CastEffectsModuleGroup:
     m_Modules:
-    - rid: 6628036602530103296
+    - rid: 8055932103569440914
   m_ImpactModuleGroup:
     m_Modules:
     - rid: 707337210847559693
@@ -355,7 +355,43 @@ MonoBehaviour:
         m_ImpactForceFrames: 15
         m_ImpactRadius: 0
         m_ScaleDamageByImpactStrength: 0
-    - rid: 5031970604905398281
+    - rid: 5031970604905398333
+      type: {class: ImpactEvent, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_AllowMultiHits: 0
+        m_CallImpactCallbackOnOriginator: 1
+        m_CallImpactCallbackOnTarget: 1
+    - rid: 8055932103569440914
+      type: {class: SpawnProjectile, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic.CastEffects, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_ID: -1
+        m_Name: 
+        m_Delay: 0
+        m_InitialDelay: -1
+        m_AllowMultiTarget: 1
+        m_ProjectilePrefab: {fileID: 2587238294010252329, guid: 15a4ca5f004e03c458d1e903dd9ec3f2, type: 3}
+        m_PositionOffset: {x: 0, y: 0, z: 0}
+        m_RotationOffset: {x: 0, y: 0, z: 0}
+        m_Speed: 10
+        m_ParentToOrigin: 0
+    - rid: 8055932103569440919
       type: {class: SimpleCaster, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic, asm: Opsive.UltimateCharacterController}
       data:
         m_States:
@@ -392,7 +428,7 @@ MonoBehaviour:
         m_Radius: 0.1
         m_DetectLayers:
           serializedVersion: 2
-          m_Bits: 2415919067
+          m_Bits: 201326675
         m_MaxAngle: 30
         m_MaxCollisionCount: 100
         m_MaxTargetCount: 1
@@ -403,42 +439,6 @@ MonoBehaviour:
         m_ContinuousCast: 0
         m_InterruptSource: 0
         m_CastUpdateOnCast: 0
-    - rid: 5031970604905398333
-      type: {class: ImpactEvent, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_Delay: 0
-        m_AllowMultiHits: 0
-        m_CallImpactCallbackOnOriginator: 1
-        m_CallImpactCallbackOnTarget: 1
-    - rid: 6628036602530103296
-      type: {class: SpawnProjectile, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic.CastEffects, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: 
-        m_Delay: 0.02
-        m_InitialDelay: -1
-        m_AllowMultiTarget: 1
-        m_ProjectilePrefab: {fileID: 2587238294010252329, guid: 15a4ca5f004e03c458d1e903dd9ec3f2, type: 3}
-        m_PositionOffset: {x: 0, y: 0, z: 0}
-        m_RotationOffset: {x: 0, y: 0, z: 0}
-        m_Speed: 10
-        m_ParentToOrigin: 0
 --- !u!1 &1007912849
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019480830}
   m_LocalRotation: {x: 0.17902009, y: 0.68007934, z: -0.6981166, w: -0.13445173}
-  m_LocalPosition: {x: 0.6781372, y: 1.2949576, z: -0.019255862}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000044, y: 0.9999937, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:

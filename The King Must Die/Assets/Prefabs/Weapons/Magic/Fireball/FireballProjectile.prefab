@@ -4858,6 +4858,7 @@ GameObject:
   - component: {fileID: 878954245122264025}
   - component: {fileID: 3440873195887962167}
   - component: {fileID: 6510541514438724848}
+  - component: {fileID: -8124013879833823094}
   m_Layer: 0
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -9714,7 +9715,7 @@ MonoBehaviour:
   m_StartSidewaysVelocityMagnitude: 3
   m_ImpactLayers:
     serializedVersion: 2
-    m_Bits: 201326883
+    m_Bits: 201326627
   m_SurfaceImpact: {fileID: 11400000, guid: ec5cf2c5cc16cf2478194198c5db4d62, type: 2}
   m_ForceMultiplier: 40
   m_CollisionMode: 0
@@ -9727,7 +9728,7 @@ MonoBehaviour:
   m_DisableColliderOnImpact: 1
   m_StickyLayers:
     serializedVersion: 2
-    m_Bits: 268435403
+    m_Bits: 201326659
   m_DestroyOnCollision: 1
   m_WaitForParticleStop: 1
   m_DestructionDelay: 0
@@ -9853,7 +9854,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3221225472
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -9861,6 +9862,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8124013879833823094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587238294010252329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &3501532261823607433
 GameObject:
   m_ObjectHideFlags: 0
