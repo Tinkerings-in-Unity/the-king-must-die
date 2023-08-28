@@ -223,7 +223,7 @@ MonoBehaviour:
     m_Modules: []
   m_CastEffectsModuleGroup:
     m_Modules:
-    - rid: 8055932103569440914
+    - rid: 8055932111034777635
   m_ImpactModuleGroup:
     m_Modules:
     - rid: 707337210847559693
@@ -370,27 +370,6 @@ MonoBehaviour:
         m_AllowMultiHits: 0
         m_CallImpactCallbackOnOriginator: 1
         m_CallImpactCallbackOnTarget: 1
-    - rid: 8055932103569440914
-      type: {class: SpawnProjectile, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic.CastEffects, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-        m_ID: -1
-        m_Name: 
-        m_Delay: 0
-        m_InitialDelay: -1
-        m_AllowMultiTarget: 1
-        m_ProjectilePrefab: {fileID: 2587238294010252329, guid: 15a4ca5f004e03c458d1e903dd9ec3f2, type: 3}
-        m_PositionOffset: {x: 0, y: 0, z: 0}
-        m_RotationOffset: {x: 0, y: 0, z: 0}
-        m_Speed: 10
-        m_ParentToOrigin: 0
     - rid: 8055932103569440919
       type: {class: SimpleCaster, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic, asm: Opsive.UltimateCharacterController}
       data:
@@ -439,6 +418,27 @@ MonoBehaviour:
         m_ContinuousCast: 0
         m_InterruptSource: 0
         m_CastUpdateOnCast: 0
+    - rid: 8055932111034777635
+      type: {class: SpawnProjectile, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Magic.CastEffects, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_ID: -1
+        m_Name: 
+        m_Delay: 0
+        m_InitialDelay: -1
+        m_AllowMultiTarget: 1
+        m_ProjectilePrefab: {fileID: 1347034509603832, guid: 812c290e8a9ec8b4f954652afbeffee8, type: 3}
+        m_PositionOffset: {x: 0, y: 0, z: 0}
+        m_RotationOffset: {x: 0, y: 0, z: 0}
+        m_Speed: 100
+        m_ParentToOrigin: 0
 --- !u!1 &1007912849
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 2019480830}
   m_LocalRotation: {x: 0.17902009, y: 0.68007934, z: -0.6981166, w: -0.13445173}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000044, y: 0.9999937, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1007912850}
