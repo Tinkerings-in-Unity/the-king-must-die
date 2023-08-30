@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4746359942444586}
   - component: {fileID: 198178465970346080}
   - component: {fileID: 199580051299046928}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4918,7 +4918,7 @@ GameObject:
   - component: {fileID: 4119478665583912}
   - component: {fileID: 198106405273273764}
   - component: {fileID: 199709842906661732}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: SubSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9757,11 +9757,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4424731503520034}
   - component: {fileID: 198620100365262566}
-  - component: {fileID: 114901142685566374}
+  - component: {fileID: -4161504679740631074}
   - component: {fileID: 199413474041559024}
   - component: {fileID: -5730432338573970331}
-  - component: {fileID: -7422076684837170933}
-  m_Layer: 0
+  - component: {fileID: -9033118479834800073}
+  m_Layer: 30
   m_Name: Projectile 28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14586,7 +14586,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &114901142685566374
+--- !u!114 &-4161504679740631074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14595,14 +14595,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347034509603832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a959a1b0b8414d4fb8a68bdc12d69ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 692f3cae2c999494485a5535e39e7ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EffectsOnCollision:
   - {fileID: 1373873258365392, guid: cd5def2bb4f6b4e4ab15ba0b6f35b29d, type: 3}
-  DestroyTimeDelay: 1
+  DestroyTimeDelay: 2
   UseWorldSpacePosition: 1
-  Offset: 0.1
+  Offset: 0
   rotationOffset: {x: 0, y: 0, z: 0}
   useOnlyRotationOffset: 1
   UseFirePointRotation: 0
@@ -14698,7 +14698,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3221225472
+    m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -14706,7 +14706,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-7422076684837170933
+--- !u!114 &-9033118479834800073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14715,60 +14715,89 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347034509603832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e5fbf96af1f2e4d9c6f57d702b7de2, type: 3}
+  m_Script: {fileID: 11500000, guid: a5490b8b0d1e8774cbafb41ce874d703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InitializeOnEnable: 0
-  m_Mass: 1
-  m_StartVelocityMultiplier: 1
-  m_GravityMagnitude: 0
-  m_Speed: 100
-  m_RotationSpeed: 5
-  m_Damping: 0.1
-  m_RotationDamping: 0.1
-  m_RotateInMoveDirection: 0
-  m_SettleThreshold: 0
-  m_SidewaysSettleThreshold: 0.75
-  m_StartSidewaysVelocityMagnitude: 3
-  m_ImpactLayers:
-    serializedVersion: 2
-    m_Bits: 201326627
-  m_SurfaceImpact: {fileID: 11400000, guid: ec5cf2c5cc16cf2478194198c5db4d62, type: 2}
-  m_ForceMultiplier: 40
-  m_CollisionMode: 0
-  m_ReflectMultiplier: 1
-  m_MaxCollisionCount: 5
-  m_MaxPositionCount: 150
-  m_ActiveAudioClipSet:
-    m_AudioConfig: {fileID: 0}
-    m_AudioClips: []
-  m_DisableColliderOnImpact: 1
-  m_StickyLayers:
-    serializedVersion: 2
-    m_Bits: 201326659
-  m_DestroyOnCollision: 1
-  m_WaitForParticleStop: 1
-  m_DestructionDelay: 0
-  m_SpawnedObjectsOnDestruction: []
-  m_DefaultImpactDamageData:
+  m_ExplodeOnEnable: 0
+  m_Radius: 2
+  m_ImpactDamageData:
     m_LayerMask:
       serializedVersion: 2
-      m_Bits: 201326595
+      m_Bits: 1006633079
     m_DamageProcessor: {fileID: 0}
-    m_DamageAmount: 10
-    m_ImpactForce: 2
+    m_DamageAmount: 100
+    m_ImpactForce: 50
     m_ImpactForceFrames: 15
-    m_ImpactRadius: 0
+    m_ImpactRadius: 1
     m_ImpactStateName: 
     m_ImpactStateDisableTimer: 10
-    m_SurfaceImpact: {fileID: 11400000, guid: ec5cf2c5cc16cf2478194198c5db4d62, type: 2}
-  m_InternalImpact: 0
+    m_SurfaceImpact: {fileID: 0}
   m_ImpactActionGroup:
-    m_ImpactActions: []
-  m_Lifespan: 10
+    m_ImpactActions:
+    - rid: 8055932172731154515
+    - rid: 8055932172731154516
+    - rid: 8055932172731154517
+  m_LineOfSight: 0
+  m_Lifespan: 1
+  m_MaxCollisionCount: 100
+  m_ExplosionAudioClipSet:
+    m_AudioConfig: {fileID: 0}
+    m_AudioClips: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8055932172731154515
+      type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_AllowMultiHits: 0
+        m_UseContextData: 1
+        m_SetDamageImpactData: 1
+        m_InvokeOnObjectImpact: 0
+        m_DamageProcessor: {fileID: 0}
+        m_DamageAmount: 10
+        m_ImpactForce: 2
+        m_ImpactForceFrames: 15
+        m_ImpactRadius: 0
+        m_ScaleDamageByImpactStrength: 0
+    - rid: 8055932172731154516
+      type: {class: SpawnSurfaceEffect, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_AllowMultiHits: 0
+        m_UseContextData: 1
+        m_SurfaceImpact: {fileID: 0}
+    - rid: 8055932172731154517
+      type: {class: ImpactEvent, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
+      data:
+        m_States:
+        - m_Name: Default
+          m_Preset: {fileID: 0}
+          m_BlockList: []
+          m_Default: 1
+        m_Bindings:
+          m_Bindings: []
+        m_Enabled: 1
+        m_Delay: 0
+        m_AllowMultiHits: 0
+        m_CallImpactCallbackOnOriginator: 1
+        m_CallImpactCallbackOnTarget: 1
 --- !u!1 &1694412689053138
 GameObject:
   m_ObjectHideFlags: 0
@@ -14780,7 +14809,7 @@ GameObject:
   - component: {fileID: 4257190544971330}
   - component: {fileID: 198504699790713256}
   - component: {fileID: 199060207667221204}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19678,7 +19707,7 @@ GameObject:
   - component: {fileID: 4992872268926716}
   - component: {fileID: 198347469227822328}
   - component: {fileID: 199228899523012876}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: SubSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24518,7 +24547,7 @@ GameObject:
   - component: {fileID: 4132231900780300}
   - component: {fileID: 198865576279727000}
   - component: {fileID: 199578203476900986}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

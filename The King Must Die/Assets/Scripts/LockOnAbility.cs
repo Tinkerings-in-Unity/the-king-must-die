@@ -54,27 +54,8 @@ public class LockOnAbility : MonoBehaviour
                 _useState = state;
             }
         }
-        
-        //get active enemies
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        _activeEnemies = new Dictionary<float,Transform>();
-        
-        foreach (var enemy in enemies)
-        {
-            if (!enemy.activeInHierarchy)
-            {
-                continue;
-            }
 
-            var dis = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (dis > searchRange)
-            {
-                continue;
-            }
-            
-            _activeEnemies.Add(dis, enemy.transform);
-        }
+        UpdateEnemies();
     }
 
     private void Update()
@@ -87,7 +68,7 @@ public class LockOnAbility : MonoBehaviour
 
         if (faceTarget)
         {
-            if (_magicProjectileState.Active || _useState.Active)
+            if (_magicProjectileState.Active || _useState.Active && _currentTarget != null)
             {
                 _characterLocomotion.TryStartAbility(_rotateTowards);
                 _rotateTowards.Target = _currentTarget;
@@ -117,36 +98,16 @@ public class LockOnAbility : MonoBehaviour
         _currentTarget = null;
         
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        _activeEnemies = new Dictionary<float,Transform>();
         
         foreach (var enemy in enemies)
         {
-            var dis = Vector3.Distance(transform.position, enemy.transform.position);
-            
-            if (_activeEnemies.ContainsValue(enemy.transform))
+            if (!enemy.activeInHierarchy)
             {
-                if (!enemy.activeInHierarchy || dis > searchRange)
-                {
-                    foreach (var keyValuePair in _activeEnemies)
-                    {
-                        if (keyValuePair.Value != enemy.transform)
-                        {
-                            continue;
-                        }
+                continue;
+            }
 
-                        _activeEnemies.Remove(keyValuePair.Key);
-                        break;
-                    }
-                }
-            
-                continue;
-            }
-            
-            if (!enemy.activeSelf)
-            {
-                continue;
-            }
-            
-            
+            var dis = Vector3.Distance(transform.position, enemy.transform.position);
 
             if (dis > searchRange)
             {
