@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Utility.Events;
+using Opsive.Shared.Game;
+using Opsive.Shared.StateSystem;
+using UnityEngine;
+
+public class WeaponAttackingEvent : GenericEvent<WeaponAttackState> {}
+
+public class AnimatorWeaponBehaviour : StateMachineBehaviour
+{
+    private GameObject _character;
+    private WeaponController _weaponController;
+
+    private void Awake()
+    {
+    }
+    
+    // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (_character == null)
+        {
+            _character = GameObject.FindGameObjectWithTag("Player");
+        }
+        
+        var weaponAttackingEvent = new WeaponAttackingEvent();
+        weaponAttackingEvent.Set(WeaponAttackState.AttackingOne);
+        EventBus.Publish(weaponAttackingEvent);
+
+        StateManager.SetState(_character, "Use", true);
+    }
+
+    // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateExit is called before OnStateExit is called on any state inside this state machine
+    // override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // {
+    // }
+
+
+    // OnStateMove is called before OnStateMove is called on any state inside this state machine
+    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateIK is called before OnStateIK is called on any state inside this state machine
+    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateMachineEnter is called when entering a state machine via its Entry Node
+    //override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
+    //{
+    //    
+    //}
+
+    // OnStateMachineExit is called when exiting a state machine via its Exit Node
+    //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
+    //{
+    //    
+    //}
+}

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MagicProjectileSource
   - Enemy
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

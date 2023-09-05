@@ -538,7 +538,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.58568394
+        functionName: OnStoppedAttacking
+        data: 
+        objectReferenceParameter: {fileID: 5160665617238889798, guid: d843d31c9aba35249bb45e05f134bb84, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
