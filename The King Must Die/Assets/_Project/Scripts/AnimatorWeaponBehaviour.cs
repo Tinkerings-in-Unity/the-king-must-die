@@ -6,8 +6,6 @@ using Opsive.Shared.Game;
 using Opsive.Shared.StateSystem;
 using UnityEngine;
 
-public class WeaponAttackingEvent : GenericEvent<WeaponAttackState> {}
-
 public class AnimatorWeaponBehaviour : StateMachineBehaviour
 {
     private GameObject _character;

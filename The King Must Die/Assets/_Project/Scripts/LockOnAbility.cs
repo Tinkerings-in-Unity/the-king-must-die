@@ -14,7 +14,6 @@ using Utility.Events;
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
 
-public class StopAttackStateEvent : IBusEvent{}
 public class LockOnAbility : MonoBehaviour
 {
     [SerializeField] private bool faceTarget;
@@ -43,32 +42,32 @@ public class LockOnAbility : MonoBehaviour
     private void OnAttackStateChanged(WeaponAttackingEvent updateEvent)
     {
 
-        switch (updateEvent.First)
-        {
-            case WeaponAttackState.AttackingOne:
-                break;
-            case WeaponAttackState.AttackingTwo:
-                break;
-            case WeaponAttackState.StoppedAttacking:
-                break;
-            case WeaponAttackState.StoppedAttackingTwo:
-                break;
-            case WeaponAttackState.AttackingProjectile:
-                break;
-            case WeaponAttackState.StoppedAttackingProjectile:
-                break;
-            case WeaponAttackState.AttackingSpecial:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        // switch (updateEvent.First)
+        // {
+        //     case WeaponAttackState.AttackingOne:
+        //         break;
+        //     case WeaponAttackState.AttackingTwo:
+        //         break;
+        //     case WeaponAttackState.StoppedAttacking:
+        //         break;
+        //     case WeaponAttackState.StoppedAttackingTwo:
+        //         break;
+        //     case WeaponAttackState.AttackingProjectile:
+        //         break;
+        //     case WeaponAttackState.StoppedAttackingProjectile:
+        //         break;
+        //     case WeaponAttackState.AttackingSpecial:
+        //         break;
+        //     default:
+        //         throw new ArgumentOutOfRangeException();
+        // }
         
     }
 
     private void OnStopAttackState(StopAttackStateEvent updateEvent)
     {
-        StateManager.SetState(gameObject, "Use", false);
-        StateManager.SetState(gameObject, "MagicProjectile", false);
+        // StateManager.SetState(gameObject, "Use", false);
+        // StateManager.SetState(gameObject, "MagicProjectile", false);
     }
     
     private void OnDestroy()
@@ -110,7 +109,7 @@ public class LockOnAbility : MonoBehaviour
 
         if (faceTarget)
         {
-            if (_magicProjectileState.Active || _useState.Active && _currentTarget != null)
+            if (_magicProjectileState.Active && _currentTarget != null) // || _useState.Active && _currentTarget != null)
             {
                 _characterLocomotion.TryStartAbility(_rotateTowards);
                 _rotateTowards.Target = _currentTarget;

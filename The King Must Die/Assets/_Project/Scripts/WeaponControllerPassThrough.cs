@@ -29,4 +29,11 @@ public class WeaponControllerPassThrough : MonoBehaviour
       var stopAttackStateEvent = new StopAttackStateEvent();
       EventBus.Publish(stopAttackStateEvent);
    }
+   
+   public void SpawnSpecialAttackParticles()
+   {
+      var weaponAttackingEvent = new WeaponAttackingEvent();
+      weaponAttackingEvent.Set(WeaponAttackState.SpawnSpecialAttackParticles);
+      EventBus.Publish(weaponAttackingEvent);
+   }
 }

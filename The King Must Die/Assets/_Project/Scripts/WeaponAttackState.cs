@@ -6,5 +6,6 @@
     StoppedAttackingTwo,
     AttackingProjectile,
     StoppedAttackingProjectile,
-    AttackingSpecial
+    AttackingSpecial,
+    SpawnSpecialAttackParticles,
 }

@@ -8,6 +8,8 @@ public class WeaponController : MonoBehaviour
 {
 
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem projectileParticleSystem;
+    [SerializeField] private ParticleSystem specialAttackParticleSystem;
     private static readonly int AttackingOne = Animator.StringToHash("attackingOne");
     private static readonly int AttackingTwo = Animator.StringToHash("attackingTwo");
     private static readonly int AttackingProjectile = Animator.StringToHash("attackingProjectile");
@@ -34,6 +36,7 @@ public class WeaponController : MonoBehaviour
                 animator.SetBool(AttackingProjectile, false);
                 break;
             case WeaponAttackState.StoppedAttacking:
+                // specialAttackParticleSystem.Stop(true);
                 animator.SetBool(AttackingOne, false);
                 animator.SetBool(AttackingTwo, false);
                 animator.SetBool(AttackingProjectile, false);
@@ -43,13 +46,18 @@ public class WeaponController : MonoBehaviour
                 animator.SetBool(AttackingTwo, false);
                 break;
             case WeaponAttackState.AttackingProjectile:
+                projectileParticleSystem.Play(true);
                 animator.SetBool(AttackingProjectile, true);
                 break;
             case WeaponAttackState.StoppedAttackingProjectile:
+                projectileParticleSystem.Stop(true);
                 animator.SetBool(AttackingProjectile, false);
                 break;
             case WeaponAttackState.AttackingSpecial:
                 animator.SetBool(AttackingSpecial, true);
+                break;
+            case WeaponAttackState.SpawnSpecialAttackParticles:
+                // specialAttackParticleSystem.Play(true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
