@@ -64,8 +64,9 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Impact
         /// <summary>
         /// A static constructor for the default damage impacts use to quickly setup a component.
         /// </summary>
+        /// <param name="useContextData">Use the context data?</param>
         /// <returns>The new impact action group setup for damage.</returns>
-        public static ImpactActionConditionGroup DefaultConditionGroup()
+        public static ImpactActionConditionGroup DefaultConditionGroup(bool useContextData)
         {
             return new ImpactActionConditionGroup(new ImpactActionCondition[]
             {
@@ -239,48 +240,16 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Impact
     [Serializable]
     public class CheckTargetImpactConditionBehaviour : ImpactActionCondition
     {
-        /// <summary>
-        /// Internal, Can the impact proceed from the context.
-        /// </summary>
-        /// <param name="ctx">Context about the hit.</param>
-        /// <returns>True if the impact should proceed.</returns>
         protected override bool CanImpactInternal(ImpactCallbackContext ctx)
         {
-            // Search on the gameobject first.
-            var impactGameObject = ctx.ImpactCollisionData?.ImpactGameObject;
-            if (TryGetImpactConditionBehaviour(impactGameObject, out var impactConditionBehaviour) == false) {
-                
-                // Check on the Rigidbody.
-                var impactRigidbody = ctx.ImpactCollisionData?.ImpactRigidbody;
-                if (impactRigidbody == null) {
-                    // No condition behaviour, pass
-                    return true;
-                }
-                var impactRigidbodyGameObject = impactRigidbody.gameObject;
-                if(TryGetImpactConditionBehaviour(impactRigidbodyGameObject, out impactConditionBehaviour) == false)
-                {
-                    // No condition behaviour, pass
-                    return true;
-                }
-            }
-
+            var conditionBehaviour = ctx.ImpactCollisionData?.ImpactGameObject?.GetCachedComponent<ImpactConditionBehaviourBase>();
+            
             // No condition behaviour, pass
-            if (impactConditionBehaviour == null) {
+            if (conditionBehaviour == null) {
                 return true;
             }
 
-            return impactConditionBehaviour.CanImpact(ctx);
-        }
-
-        public bool TryGetImpactConditionBehaviour(GameObject gameObject, out ImpactConditionBehaviourBase impactConditionBehaviour)
-        {
-            impactConditionBehaviour = null;
-            if (gameObject == null) {
-                return false;
-            }
-            
-            impactConditionBehaviour = gameObject.GetCachedComponent<ImpactConditionBehaviourBase>();
-            return impactConditionBehaviour != null;
+            return conditionBehaviour.CanImpact(ctx);
         }
     }
     

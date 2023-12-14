@@ -18,6 +18,7 @@ Material:
   - DR_VERTEX_COLORS_ON
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _TEXTUREBLENDINGMODE_MULTIPLY
+  - _UNITYSHADOW_OCCLUSION
   m_InvalidKeywords: []
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 1
@@ -296,7 +297,7 @@ Material:
     - _ScreenUvSh2DistScale: 1
     - _ScreenUvSh3DistScale: 1
     - _ScreenUvShDistScale: 1
-    - _SelfShadingSize: 0
+    - _SelfShadingSize: 0.5
     - _Sh1BlendOffset: 0
     - _Sh2BlendOffset: 0
     - _Sh3BlendOffset: 0
@@ -360,7 +361,7 @@ Material:
     - _TwistUvPosY: 0.5
     - _TwistUvRadius: 0.75
     - _UVSec: 0
-    - _UnityShadowOcclusion: 0
+    - _UnityShadowOcclusion: 1
     - _VertOffsetAmount: 0.5
     - _VertOffsetPower: 1
     - _VertOffsetTexXSpeed: 0.1

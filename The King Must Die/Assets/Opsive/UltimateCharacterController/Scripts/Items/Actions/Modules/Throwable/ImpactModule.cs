@@ -36,12 +36,8 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Throwable
     [Serializable]
     public class GenericThrowableImpactModule : ThrowableImpactModule
     {
-        [Tooltip("The conditions to do an impact actions.")]
-        [SerializeField] protected ImpactActionConditionGroup m_Conditions = ImpactActionConditionGroup.DefaultConditionGroup();
-        [Tooltip("The impact actions to invoke on impact.")]
-        [SerializeField] protected ImpactActionGroup m_ImpactActions  = ImpactActionGroup.DefaultDamageGroup(true);
-        [Tooltip("The impact actions in case the condition fails.")]
-        [SerializeField] protected ImpactActionGroup m_FailImpactActions = new ImpactActionGroup();
+        [Tooltip("The impact actions to invoked on impact.")]
+        [SerializeField] protected ImpactActionGroup m_ImpactActions = ImpactActionGroup.DefaultDamageGroup(true);
 
         public ImpactActionGroup ImpactActions { get => m_ImpactActions; set => m_ImpactActions = value; }
 
@@ -53,31 +49,24 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Throwable
             base.InitializeInternal();
             
             m_ImpactActions.Initialize(this);
-            m_Conditions.Initialize(this);
-            m_FailImpactActions.Initialize(this);
         }
 
         /// <summary>
-        /// On fire impact.
+        /// Function called when an impact happens.
         /// </summary>
-        /// <param name="impactCallbackContext">The impact callback.</param>
+        /// <param name="impactCallbackContext">The impact callback data.</param>
         public override void OnImpact(ImpactCallbackContext impactCallbackContext)
         {
-            if (m_Conditions.CanImpact(impactCallbackContext)) {
-                m_ImpactActions.OnImpact(impactCallbackContext, true);
-            } else {
-                m_FailImpactActions.OnImpact(impactCallbackContext, true);
-            }
+            m_ImpactActions.OnImpact(impactCallbackContext, true);
         }
 
         /// <summary>
-        /// Reset the impact with the source id specified.
+        /// Reset the impact with the source id.
         /// </summary>
-        /// <param name="sourceID">The source id.</param>
+        /// <param name="sourceID">The source id of the impact to reset.</param>
         public override void Reset(uint sourceID)
         {
             m_ImpactActions.Reset(sourceID);
-            m_FailImpactActions.Reset(sourceID);
         }
 
         /// <summary>
@@ -87,7 +76,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Throwable
         {
             base.OnDestroy();
             m_ImpactActions.OnDestroy();
-            m_FailImpactActions.OnDestroy();
         }
         
         /// <summary>

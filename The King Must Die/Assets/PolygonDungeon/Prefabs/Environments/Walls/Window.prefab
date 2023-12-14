@@ -31,7 +31,7 @@ Transform:
   - {fileID: 7532679898845010749}
   - {fileID: 7173743034965363541}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7173743034965518583
 PrefabInstance:
@@ -94,10 +94,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2323452, guid: 8dcfd4337d879154cb96b9e52b53d06f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323452, guid: 8dcfd4337d879154cb96b9e52b53d06f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 98ab358921c7a494b9d346cbbd872cc1, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65995228608419922, guid: 8dcfd4337d879154cb96b9e52b53d06f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -163,7 +168,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2356968, guid: 41eeee7ac6cd71342a13a0fc4a0a0308, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 64915084735199428, guid: 41eeee7ac6cd71342a13a0fc4a0a0308, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

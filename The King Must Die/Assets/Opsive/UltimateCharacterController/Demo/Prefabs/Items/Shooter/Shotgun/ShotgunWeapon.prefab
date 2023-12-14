@@ -263,18 +263,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1000
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
-        asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 707337347307405355
       type: {class: DryFireSubstate, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable,
         asm: Opsive.UltimateCharacterController}
@@ -666,15 +654,10 @@ MonoBehaviour:
         m_Enabled: 1
         m_ID: 0
         m_Name: 
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 1000
         m_ImpactActions:
           m_ImpactActions:
           - rid: 1500199642018611221
           - rid: 1500199642018611222
-        m_FailImpactActions:
-          m_ImpactActions: []
     - rid: 1500199642018611221
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
         asm: Opsive.UltimateCharacterController}
@@ -843,18 +826,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1000
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
-        asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 5642451236516003840
       type: {class: Simple, ns: Opsive.UltimateCharacterController.Items.Actions.Modules,
         asm: Opsive.UltimateCharacterController}
@@ -991,9 +962,6 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: -1
         m_AttackID: -1
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 1000
         m_ImpactActions:
           m_ImpactActions:
           - rid: 5642451236516003846
@@ -1001,8 +969,6 @@ MonoBehaviour:
           - rid: 5642451236516003848
           - rid: 5642451236516003849
           - rid: 5642451236516003852
-        m_FailImpactActions:
-          m_ImpactActions: []
     - rid: 5642451236516003846
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact,
         asm: Opsive.UltimateCharacterController}

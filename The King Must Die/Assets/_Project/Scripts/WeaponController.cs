@@ -10,6 +10,8 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem projectileParticleSystem;
     [SerializeField] private ParticleSystem specialAttackParticleSystem;
+    [SerializeField] private TrailRenderer sweepTrailRenderer;
+    [SerializeField] private TrailRenderer jabTrailRenderer;
     private static readonly int AttackingOne = Animator.StringToHash("attackingOne");
     private static readonly int AttackingTwo = Animator.StringToHash("attackingTwo");
     private static readonly int AttackingProjectile = Animator.StringToHash("attackingProjectile");
@@ -58,6 +60,18 @@ public class WeaponController : MonoBehaviour
                 break;
             case WeaponAttackState.SpawnSpecialAttackParticles:
                 // specialAttackParticleSystem.Play(true);
+                break;
+            case WeaponAttackState.StartSpearSweepTrail:
+                sweepTrailRenderer.emitting = true;
+                break;
+            case WeaponAttackState.StopSpearSweepTrail:
+                sweepTrailRenderer.emitting = false;
+                break;
+            case WeaponAttackState.StartSpearJabTrail:
+                // jabTrailRenderer.emitting = true;
+                break;
+            case WeaponAttackState.StopSpearJabTrail:
+                // jabTrailRenderer.emitting = false;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

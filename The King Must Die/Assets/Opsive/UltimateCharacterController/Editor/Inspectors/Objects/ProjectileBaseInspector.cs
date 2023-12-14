@@ -25,7 +25,6 @@ namespace Opsive.UltimateCharacterController.Editor.Inspectors.Objects
 
             PropertiesFoldout(container, "Destruction", m_ExcludeFields, new[]
             {
-                "m_DisableColliderOnImpact",
                 "m_DestroyOnCollision",
                 "m_WaitForParticleStop",
                 "m_DestructionDelay",

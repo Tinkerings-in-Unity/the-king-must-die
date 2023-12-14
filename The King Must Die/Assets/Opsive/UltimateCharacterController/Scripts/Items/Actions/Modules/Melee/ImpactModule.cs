@@ -88,14 +88,10 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Melee
         [SerializeField] private int m_SubstateIndex = -1;
         [Tooltip("The attack ID must match to invoke (Ignore if less than 0).")]
         [SerializeField] private int m_AttackID = -1;
-        [Tooltip("The conditions to do an impact actions.")]
-        [SerializeField] protected ImpactActionConditionGroup m_Conditions = ImpactActionConditionGroup.DefaultConditionGroup();
-        [Tooltip("The impact actions to invoke on impact.")]
+        [Tooltip("The impact actions to invoke.")]
         [SerializeField] protected ImpactActionGroup m_ImpactActions  = ImpactActionGroup.DefaultDamageGroup(true);
-        [Tooltip("The impact actions in case the condition fails.")]
-        [SerializeField] protected ImpactActionGroup m_FailImpactActions = new ImpactActionGroup();
 
-        public ImpactActionGroup ImpactActions { get => m_ImpactActions; set => m_ImpactActions = value; }
+        [Shared.Utility.NonSerialized] public ImpactActionGroup ImpactActions { get => m_ImpactActions; set => m_ImpactActions = value; }
 
         /// <summary>
         /// Initialize the module.
@@ -105,8 +101,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Melee
             base.InitializeInternal();
             
             m_ImpactActions.Initialize(this);
-            m_Conditions.Initialize(this);
-            m_FailImpactActions.Initialize(this);
         }
 
         /// <summary>
@@ -116,12 +110,16 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Melee
         public override void OnImpact(ImpactCallbackContext impactCallbackContext)
         {
             if (CanInvoke(impactCallbackContext) == false) { return; }
+            m_ImpactActions.OnImpact(impactCallbackContext, true);
+        }
 
-            if (m_Conditions.CanImpact(impactCallbackContext)) {
-                m_ImpactActions.OnImpact(impactCallbackContext, true);
-            } else {
-                m_FailImpactActions.OnImpact(impactCallbackContext, true);
-            }
+        /// <summary>
+        /// Reset the impact with the matching source id.
+        /// </summary>
+        /// <param name="sourceID">The source if od the impact to resset.</param>
+        public override void Reset(uint sourceID)
+        {
+            m_ImpactActions.Reset(sourceID);
         }
         
         /// <summary>
@@ -139,25 +137,14 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Melee
         }
 
         /// <summary>
-        /// Reset the impact with the source id specified.
-        /// </summary>
-        /// <param name="sourceID">The source id.</param>
-        public override void Reset(uint sourceID)
-        {
-            m_ImpactActions.Reset(sourceID);
-            m_FailImpactActions.Reset(sourceID);
-        }
-
-        /// <summary>
         /// Clean up the module when it is destroyed.
         /// </summary>
         public override void OnDestroy()
         {
             base.OnDestroy();
             m_ImpactActions.OnDestroy();
-            m_FailImpactActions.OnDestroy();
         }
-        
+
         /// <summary>
         /// Write the module name in an easy to read format for debugging.
         /// </summary>

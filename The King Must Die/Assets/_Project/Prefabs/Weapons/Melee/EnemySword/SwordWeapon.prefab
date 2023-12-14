@@ -28,6 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798529714311038646}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,7 +36,6 @@ Transform:
   m_Children:
   - {fileID: 3405940654230752287}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &992997935721533028
 MonoBehaviour:
@@ -546,16 +546,11 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: -1
         m_AttackID: -1
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 8055931962749092249
         m_ImpactActions:
           m_ImpactActions:
           - rid: 8055931962749092250
           - rid: 8055931962749092251
           - rid: 8055931962749092252
-        m_FailImpactActions:
-          m_ImpactActions: []
     - rid: 8055931962749092248
       type: {class: GenericMeleeImpactModule, ns: Opsive.UltimateCharacterController.Items.Actions.Modules.Melee, asm: Opsive.UltimateCharacterController}
       data:
@@ -571,26 +566,10 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: 4
         m_AttackID: -1
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 8055931962749092253
         m_ImpactActions:
           m_ImpactActions:
           - rid: 8055931962749092254
           - rid: 8055931962749092255
-        m_FailImpactActions:
-          m_ImpactActions: []
-    - rid: 8055931962749092249
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 8055931962749092250
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
       data:
@@ -642,17 +621,6 @@ MonoBehaviour:
         m_Delay: 0
         m_AllowMultiHits: 0
         m_ImpactKnockBackID: 2
-    - rid: 8055931962749092253
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 8055931962749092254
       type: {class: CharacterKnockBack, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
       data:
@@ -1022,37 +990,10 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: -1
         m_AttackID: -1
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 1000
         m_ImpactActions:
           m_ImpactActions:
           - rid: 707337210847559715
           - rid: 5642451166386716681
-        m_FailImpactActions:
-          m_ImpactActions: []
-    - rid: 1000
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
-    - rid: 1001
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 707337210847559715
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
       data:
@@ -1289,16 +1230,11 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: -1
         m_AttackID: 2
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 1001
         m_ImpactActions:
           m_ImpactActions:
           - rid: 5642451166386716683
           - rid: 5642451166386716684
           - rid: 5642451166386716686
-        m_FailImpactActions:
-          m_ImpactActions: []
     - rid: 5642451166386716683
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
       data:
@@ -1446,30 +1382,14 @@ MonoBehaviour:
         m_Name: 
         m_SubstateIndex: -1
         m_AttackID: -1
-        m_Conditions:
-          m_ImpactActionConditions:
-          - rid: 1000
         m_ImpactActions:
           m_ImpactActions:
           - rid: 707337210847559715
           - rid: 5642451166386716688
-        m_FailImpactActions:
-          m_ImpactActions: []
     - rid: 10
       type: {class: Sequence, ns: Opsive.UltimateCharacterController.Items.AnimatorAudioStates, asm: Opsive.UltimateCharacterController}
       data:
         m_ResetDelay: -1
-    - rid: 1000
-      type: {class: CheckTargetImpactConditionBehaviour, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
-      data:
-        m_States:
-        - m_Name: Default
-          m_Preset: {fileID: 0}
-          m_BlockList: []
-          m_Default: 1
-        m_Bindings:
-          m_Bindings: []
-        m_Enabled: 1
     - rid: 707337210847559715
       type: {class: SimpleDamage, ns: Opsive.UltimateCharacterController.Items.Actions.Impact, asm: Opsive.UltimateCharacterController}
       data:

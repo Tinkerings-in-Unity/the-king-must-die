@@ -8,4 +8,8 @@
     StoppedAttackingProjectile,
     AttackingSpecial,
     SpawnSpecialAttackParticles,
+    StartSpearSweepTrail,
+    StopSpearSweepTrail,
+    StartSpearJabTrail,
+    StopSpearJabTrail
 }

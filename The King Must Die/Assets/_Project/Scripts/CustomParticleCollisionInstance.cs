@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ public class CustomParticleCollisionInstance: MonoBehaviour
     }
     void OnParticleCollision(GameObject other)
     {
+        Debug.Log($"Called with {other.name}");
         if (gameObject.TryGetComponent<ProjectileDamage>(out var projectileDamage))
         {
             projectileDamage.Explode(other);
@@ -48,5 +50,12 @@ public class CustomParticleCollisionInstance: MonoBehaviour
         {
             Destroy(gameObject, DestroyTimeDelay + 0.5f);
         }
+    }
+
+    private void OnParticleTrigger()
+    {
+        Debug.Log("Trigger");
+        // var particles = part.GetParticles()
+        // part.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, )
     }
 }

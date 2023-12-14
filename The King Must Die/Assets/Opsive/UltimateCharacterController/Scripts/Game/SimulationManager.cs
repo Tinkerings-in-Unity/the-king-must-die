@@ -283,6 +283,8 @@ namespace Opsive.UltimateCharacterController
             /// </summary>
             public override void RestoreFixedLocation()
             {
+                if (m_Controller.CharacterLocomotion.RigidbodyParent == null) {
+                }
                 base.RestoreFixedLocation();
 
                 m_SmoothFieldOfView = m_FixedFieldOfView;
@@ -680,6 +682,10 @@ namespace Opsive.UltimateCharacterController
         private void Update()
         {
             var interpAmount = (Time.time - m_FixedTime) / Time.fixedDeltaTime;
+            if (float.IsNaN(interpAmount)) {
+                interpAmount = 0;
+            }
+
             MoveSmoothedObjects(interpAmount);
             MoveCharacters(false, interpAmount);
             MoveCameras(interpAmount);

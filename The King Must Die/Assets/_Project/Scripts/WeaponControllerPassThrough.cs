@@ -36,4 +36,32 @@ public class WeaponControllerPassThrough : MonoBehaviour
       weaponAttackingEvent.Set(WeaponAttackState.SpawnSpecialAttackParticles);
       EventBus.Publish(weaponAttackingEvent);
    }
+   
+   public void StartSpearSweepTrail()
+   {
+      var weaponAttackingEvent = new WeaponAttackingEvent();
+      weaponAttackingEvent.Set(WeaponAttackState.StartSpearSweepTrail);
+      EventBus.Publish(weaponAttackingEvent);
+   }
+   
+   public void StopSpearSweepTrail()
+   {
+      var weaponAttackingEvent = new WeaponAttackingEvent();
+      weaponAttackingEvent.Set(WeaponAttackState.StopSpearSweepTrail);
+      EventBus.Publish(weaponAttackingEvent);
+   }
+   
+   public void StartSpearJabTrail()
+   {
+      var weaponAttackingEvent = new WeaponAttackingEvent();
+      weaponAttackingEvent.Set(WeaponAttackState.StartSpearJabTrail);
+      EventBus.Publish(weaponAttackingEvent);
+   }
+   
+   public void StopSpearJabTrail()
+   {
+      var weaponAttackingEvent = new WeaponAttackingEvent();
+      weaponAttackingEvent.Set(WeaponAttackState.StopSpearJabTrail);
+      EventBus.Publish(weaponAttackingEvent);
+   }
 }

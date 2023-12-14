@@ -131,7 +131,7 @@ namespace Opsive.UltimateCharacterController.Objects
         private Vector3 m_PlatformRelativePosition;
         private Quaternion m_PrevPlatformRotation;
 
-        private int m_SimulationIndex = -1;
+        private int m_SimulationIndex;
 
         public GameObject Owner { get { return m_Owner; } }
         public Vector3 Velocity { get { return m_Velocity; } }
@@ -662,13 +662,6 @@ namespace Opsive.UltimateCharacterController.Objects
                         m_MovementSettled = true;
                     }
                     m_Collided = true;
-
-                    // The object should not interpolate between reflections.
-                    if (Interpolate) {
-                        SimulationManager.SetSmoothedObjectPosition(m_SimulationIndex, targetPosition);
-                        SimulationManager.SetSmoothedObjectRotation(m_SimulationIndex, rotation);
-                    }
-
                     return false;
                 }
             } else {
@@ -727,7 +720,6 @@ namespace Opsive.UltimateCharacterController.Objects
             }
 
             var index = 0;
-            var absoluteIndex = false;
             // The object should not collide with the owner to prevent the character from hitting themself.
             if (m_OwnerCollisionCheck && m_OwnerTransform != null) {
                 if (hitCount > 0) {
@@ -743,7 +735,6 @@ namespace Opsive.UltimateCharacterController.Objects
                         } else {
                             index = i;
                             m_OwnerCollisionCheck = false;
-                            absoluteIndex = true;
                         }
                     }
 
@@ -757,11 +748,7 @@ namespace Opsive.UltimateCharacterController.Objects
             }
 
             if (hitCount > 0) {
-                if (absoluteIndex) {
-                    m_RaycastHit = m_CombinedRaycastHits[index];
-                } else {
-                    m_RaycastHit = QuickSelect.SmallestK(m_CombinedRaycastHits, hitCount, index, m_RaycastHitComparer);
-                }
+                m_RaycastHit = m_CombinedRaycastHits[index];
                 return true;
             }
             return false;

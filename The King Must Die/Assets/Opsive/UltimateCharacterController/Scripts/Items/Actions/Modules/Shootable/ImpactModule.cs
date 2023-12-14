@@ -86,12 +86,8 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable
     [Serializable]
     public class GenericShootableImpactModule : ShootableImpactModule
     {
-        [Tooltip("The conditions to do an impact actions.")]
-        [SerializeField] protected ImpactActionConditionGroup m_Conditions = ImpactActionConditionGroup.DefaultConditionGroup();
         [Tooltip("The impact actions to invoke on impact.")]
         [SerializeField] protected ImpactActionGroup m_ImpactActions  = ImpactActionGroup.DefaultDamageGroup(true);
-        [Tooltip("The impact actions in case the condition fails.")]
-        [SerializeField] protected ImpactActionGroup m_FailImpactActions = new ImpactActionGroup();
 
         public ImpactActionGroup ImpactActions { get => m_ImpactActions; set => m_ImpactActions = value; }
 
@@ -103,8 +99,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable
             base.InitializeInternal();
             
             m_ImpactActions.Initialize(this);
-            m_Conditions.Initialize(this);
-            m_FailImpactActions.Initialize(this);
         }
 
         /// <summary>
@@ -113,11 +107,7 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable
         /// <param name="impactCallbackContext">The impact callback.</param>
         public override void OnImpact(ImpactCallbackContext impactCallbackContext)
         {
-            if (m_Conditions.CanImpact(impactCallbackContext)) {
-                m_ImpactActions.OnImpact(impactCallbackContext, true);
-            } else {
-                m_FailImpactActions.OnImpact(impactCallbackContext, true);
-            }
+            m_ImpactActions.OnImpact(impactCallbackContext, true);
         }
 
         /// <summary>
@@ -127,7 +117,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable
         public override void Reset(uint sourceID)
         {
             m_ImpactActions.Reset(sourceID);
-            m_FailImpactActions.Reset(sourceID);
         }
 
         /// <summary>
@@ -137,7 +126,6 @@ namespace Opsive.UltimateCharacterController.Items.Actions.Modules.Shootable
         {
             base.OnDestroy();
             m_ImpactActions.OnDestroy();
-            m_FailImpactActions.OnDestroy();
         }
         
         /// <summary>

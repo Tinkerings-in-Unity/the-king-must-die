@@ -248,8 +248,8 @@ namespace Opsive.UltimateCharacterController.Character.Abilities
         public virtual bool CanReceiveMultipleStarts { get { return false; } }
         public virtual bool CanStayActivatedOnDeath { get { return false; } }
         public virtual bool ImmediateStartItemVerifier { get { return false; } }
-        [Shared.Utility.NonSerialized] public virtual int AbilityIntData { get { return int.MinValue; } set { /* Intentionally left blank. */ } }
-        public virtual float AbilityFloatData { get { return float.NegativeInfinity; } }
+        [Shared.Utility.NonSerialized] public virtual int AbilityIntData { get { return -1; } set { /* Intentionally left blank. */ } }
+        public virtual float AbilityFloatData { get { return -1; } }
 #if UNITY_EDITOR
         // Allows the ability to show a brief description within the inspector's ReorderableList.
         public virtual string AbilityDescription { get { return string.Empty; } }

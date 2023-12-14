@@ -861,19 +861,11 @@ namespace Opsive.UltimateCharacterController.Character
                         }
                         // The ability cannot be started if the active ability says the current ability cannot be started.
                         for (int i = 0; i < m_ActiveAbilityCount; ++i) {
-                            // The ability may be removed within the nested TryStopAbility.
-                            if (m_ActiveAbilities[i] == null) {
-                                continue;
-                            }
                             if (m_ActiveAbilities[i].ShouldBlockAbilityStart(ability)) {
                                 return false;
                             }
                         }
                         for (int i = 0; i < m_ActiveItemAbilityCount; ++i) {
-                            // The ability may be removed within the nested TryStopAbility.
-                            if (m_ActiveItemAbilities[i] == null) {
-                                continue;
-                            }
                             if (m_ActiveItemAbilities[i].ShouldBlockAbilityStart(ability)) {
                                 return false;
                             }
