@@ -1,4 +1,4 @@
-# Shapes Game
+# The King Must Die
 This is/was a prototype for a 3D action roguelike inspired by Hades
 
 ## Disclaimer
